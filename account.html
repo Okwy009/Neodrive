@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>NeoDrive — Your account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NeoDrive: new and pre-owned electric cars with clear delivered prices and transparent financing.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>x-dc{display:none}</style>
+<script src="assets/dc-lite.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,600;125,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0C0E}
+a{color:#F2F1EC}a:hover{color:#E2C48A}
+</style>
+</helmet>
+<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #F2F1EC; background: #0B0C0E; min-height: 100vh">
+
+<div style="background: #15171B; border-bottom: 1px solid #22252B; text-align: center; padding: 9px 16px; font-size: 13px; color: #B7BAC0">Preview build · demo account with sample data</div>
+
+<sc-if value="{{isSignIn}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-wrap: wrap; min-height: 900px">
+<div style="flex: 1 1 520px; min-width: 0; background: radial-gradient(120% 90% at 50% 100%, #2A2D33 0%, #15171B 45%, #0E0F12 100%); border-right: 1px solid #22252B; padding: 40px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
+<a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+</a>
+<svg viewBox="0 0 1000 330" aria-hidden="true" style="display: block; width: 100%; height: auto">
+<ellipse cx="510" cy="292" rx="460" ry="22" fill="#000" fill-opacity="0.5"></ellipse>
+<path d="M60 262 C56 230 76 208 134 198 L306 176 C368 122 440 94 532 92 L652 94 C724 98 794 138 856 176 L916 188 C950 196 962 218 962 246 L962 262 Z" fill="#2B3440"></path>
+<path d="M338 176 C390 130 452 110 532 108 L644 110 C694 114 746 140 796 172 Z" fill="#0D1014"></path>
+<path d="M140 204 C380 184 700 178 912 192" fill="none" stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="2"></path>
+<path d="M930 214 L960 220" stroke="#D6B370" stroke-width="5" stroke-linecap="round"></path>
+<circle cx="236" cy="262" r="62" fill="#0E0F12"></circle><circle cx="796" cy="262" r="62" fill="#0E0F12"></circle>
+<circle cx="236" cy="262" r="52" fill="#17191D" stroke="#2A2E35" stroke-width="10"></circle><circle cx="796" cy="262" r="52" fill="#17191D" stroke="#2A2E35" stroke-width="10"></circle>
+<circle cx="236" cy="262" r="10" fill="#D6B370"></circle><circle cx="796" cy="262" r="10" fill="#D6B370"></circle>
+</svg>
+<div style="display: flex; flex-direction: column; gap: 12px; max-width: 460px">
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(28px, 3.5vw, 42px); line-height: 1.05; text-transform: uppercase">Your car, your agreement, one place.</h1>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.6">Track delivery, see every payment and download your documents.</p>
+</div>
+</div>
+
+<div style="flex: 1 1 460px; min-width: 0; padding: 40px 24px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{isPassword}}" hint-placeholder-val="{{ true }}">
+<form aria-label="Sign in" style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Sign in</h2>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Email<input type="email" autocomplete="email" value="ada.okafor@example.com" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Password<input type="password" autocomplete="current-password" value="demo-password" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<a href="#reset" style="align-self: flex-end; font-size: 14px; color: #D6B370; padding: 6px 0">Forgot password?</a>
+<button type="button" onClick="{{toCode}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Continue</button>
+<p style="margin: 0; font-size: 14px; color: #B7BAC0; text-align: center">New here? <a href="#register" style="color: #F2F1EC; font-weight: 600">Create an account</a></p>
+<div style="display: flex; gap: 12px; padding: 14px 16px; border: 1px solid #262A30; border-radius: 12px; background: #111316">
+<svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#8FD3C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+<span style="font-size: 13px; color: #B7BAC0; line-height: 1.5">We will never ask for your password or sign-in code by phone, text or email.</span>
+</div>
+</form>
+</sc-if>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}">
+<form aria-label="Verify sign-in" style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<button type="button" onClick="{{toPassword}}" style="align-self: flex-start; min-height: 44px; background: none; border: 0; color: #B7BAC0; font: inherit; font-size: 14px; cursor: pointer; padding: 0">← Back</button>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Check your phone</h2>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.55">Enter the 6-digit code we sent to the number ending 4471.</p>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Sign-in code<input type="text" inputmode="numeric" autocomplete="one-time-code" value="482 913" style="min-height: 56px; padding: 0 16px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.3em"></label>
+<button type="button" onClick="{{toDash}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Sign in</button>
+<a href="#resend" style="align-self: center; font-size: 14px; color: #D6B370; padding: 6px 0">Send a new code</a>
+</form>
+</sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isDash}}" hint-placeholder-val="{{ false }}">
+<header style="border-bottom: 1px solid #22252B">
+<div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<svg width="28" height="28" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+</a>
+<div style="display: flex; align-items: center; gap: 14px">
+<a href="index.html" style="font-size: 14px; color: #B7BAC0; padding: 10px 0">Browse cars</a>
+<span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 999px; background: #262A30; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">AO</span>
+<button type="button" onClick="{{signOut}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #3A3F47; border-radius: 999px; background: none; color: #F2F1EC; font: inherit; font-size: 14px; cursor: pointer">Sign out</button>
+</div>
+</div>
+</header>
+
+<div style="max-width: 1360px; margin: 0 auto; padding: 32px 24px 64px; display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start">
+<nav aria-label="Account" style="flex: 1 1 220px; max-width: 100%; display: flex; flex-direction: column; gap: 4px">
+<sc-for list="{{nav}}" as="n" hint-placeholder-count="4">
+<button type="button" onClick="{{n.pick}}" aria-current="{{n.current}}" style="{{n.style}}">{{n.label}}</button>
+</sc-for>
+<div style="margin-top: 20px; padding: 16px; border: 1px solid #262A30; border-radius: 14px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 13px; color: #8D9199">Your advisor</span>
+<strong style="font-size: 15px">Tomi Adeyemi</strong>
+<a href="#message" style="font-size: 14px; color: #D6B370; padding: 4px 0">Send a message</a>
+</div>
+</nav>
+
+<main style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+
+<sc-if value="{{tabOverview}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: 14px; color: #8D9199">Good morning,</span>
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3vw, 36px); text-transform: uppercase">Ada Okafor</h1>
+</div>
+
+<section aria-label="Your order" style="background: #15171B; border: 1px solid #262A30; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D6B370; letter-spacing: 0.1em; text-transform: uppercase">Order NDV-20418</span>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">Vantor Eon GT · Graphite Slate</h2>
+</div>
+<span style="padding: 8px 14px; border-radius: 999px; background: #0F1A18; border: 1px solid #2E5A52; color: #CBEDE6; font-size: 13px; font-weight: 600">Arriving Thu 29 Oct</span>
+</div>
+<ol style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px">
+<sc-for list="{{steps}}" as="st" hint-placeholder-count="5">
+<li style="display: flex; flex-direction: column; gap: 8px">
+<span style="{{st.bar}}"></span>
+<span style="font-size: 14px; font-weight: 600; color: {{st.color}}">{{st.label}}</span>
+<span style="font-size: 13px; color: #8D9199">{{st.date}}</span>
+</li>
+</sc-for>
+</ol>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#delivery" style="text-decoration: none; padding: 12px 18px; background: #D6B370; color: #0B0C0E; border-radius: 999px; font-weight: 600; font-size: 14px">Choose delivery slot</a>
+<a href="#inspection" style="text-decoration: none; padding: 12px 18px; border: 1px solid #3A3F47; border-radius: 999px; font-weight: 600; font-size: 14px">Pre-delivery inspection report</a>
+</div>
+</section>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+<section aria-label="Finance summary" style="background: #15171B; border: 1px solid #262A30; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; justify-content: space-between; gap: 12px"><h2 style="margin: 0; font-size: 16px; font-weight: 600">Finance agreement</h2><span style="font-size: 13px; color: #8D9199">AG-55120</span></div>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; color: #8D9199">Balance outstanding</span><span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 30px">$48,122</span></div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div role="progressbar" aria-label="Payments made" aria-valuemin="0" aria-valuemax="48" aria-valuenow="7" style="height: 8px; background: #262A30; border-radius: 999px; overflow: hidden"><div style="width: 14.6%; height: 100%; background: #D6B370"></div></div>
+<span style="font-size: 13px; color: #B7BAC0">7 of 48 payments made · $9,401 paid</span>
+</div>
+<button type="button" onClick="{{goFinance}}" style="align-self: flex-start; min-height: 44px; padding: 0 16px; border: 1px solid #3A3F47; border-radius: 999px; background: none; color: #F2F1EC; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">View agreement</button>
+</section>
+<section aria-label="Next payment" style="background: #15171B; border: 1px solid #262A30; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Next payment</h2>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 30px">$1,343</span><span style="font-size: 14px; color: #B7BAC0">Sun 1 Nov · direct debit from account ending 0927</span></div>
+<p style="margin: 0; font-size: 13px; color: #8D9199; line-height: 1.5">Collected by [LENDER NAME]. Struggling to pay? Talk to us early: we can pause or restructure.</p>
+<a href="#help-paying" style="font-size: 14px; color: #D6B370; padding: 4px 0">Get help with payments</a>
+</section>
+</div>
+
+<section aria-label="To do" style="background: #15171B; border: 1px solid #262A30; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 14px">
+<h2 style="margin: 0; font-size: 16px; font-weight: 600">Things to do</h2>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column">
+<sc-for list="{{todos}}" as="t" hint-placeholder-count="3">
+<li style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-top: 1px solid #22252B">
+<button type="button" role="checkbox" aria-checked="{{t.checked}}" aria-label="{{t.label}}" onClick="{{t.toggle}}" style="{{t.box}}"><span aria-hidden="true">{{t.mark}}</span></button>
+<span style="flex: 1; font-size: 15px; {{t.textStyle}}">{{t.label}}</span>
+<span style="font-size: 13px; color: #8D9199">{{t.due}}</span>
+</li>
+</sc-for>
+</ul>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{tabFinance}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3vw, 36px); text-transform: uppercase">Finance agreement</h1>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: #262A30; border: 1px solid #262A30; border-radius: 18px; overflow: hidden">
+<sc-for list="{{agreement}}" as="a" hint-placeholder-count="8">
+<div style="background: #15171B; padding: 18px"><dt style="font-size: 12px; color: #8D9199">{{a.k}}</dt><dd style="margin: 6px 0 0; font-weight: 600; font-size: 17px">{{a.v}}</dd></div>
+</sc-for>
+</dl>
+<section aria-label="Upcoming payments" style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-size: 18px; font-weight: 600">Upcoming payments</h2>
+<div style="overflow-x: auto; border: 1px solid #262A30; border-radius: 16px">
+<table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 15px">
+<thead><tr style="background: #15171B; text-align: left"><th scope="col" style="padding: 12px 18px; color: #B7BAC0; font-weight: 600">#</th><th scope="col" style="padding: 12px 18px; color: #B7BAC0; font-weight: 600">Due</th><th scope="col" style="padding: 12px 18px; color: #B7BAC0; font-weight: 600; text-align: right">Payment</th><th scope="col" style="padding: 12px 18px; color: #B7BAC0; font-weight: 600; text-align: right">Interest</th><th scope="col" style="padding: 12px 18px; color: #B7BAC0; font-weight: 600; text-align: right">Balance after</th></tr></thead>
+<tbody data-for="{{schedule}}" data-as="r">
+<tr style="border-top: 1px solid #22252B"><td style="padding: 12px 18px; color: #8D9199">{{r.n}}</td><td style="padding: 12px 18px">{{r.due}}</td><td style="padding: 12px 18px; text-align: right; font-family: 'JetBrains Mono', monospace">{{r.pay}}</td><td style="padding: 12px 18px; text-align: right; font-family: 'JetBrains Mono', monospace; color: #B7BAC0">{{r.int}}</td><td style="padding: 12px 18px; text-align: right; font-family: 'JetBrains Mono', monospace">{{r.bal}}</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<a href="#settle" style="text-decoration: none; padding: 12px 18px; background: #D6B370; color: #0B0C0E; border-radius: 999px; font-weight: 600; font-size: 14px">Get a settlement quote</a>
+<a href="#overpay" style="text-decoration: none; padding: 12px 18px; border: 1px solid #3A3F47; border-radius: 999px; font-weight: 600; font-size: 14px">Make an overpayment</a>
+<a href="#change-date" style="text-decoration: none; padding: 12px 18px; border: 1px solid #3A3F47; border-radius: 999px; font-weight: 600; font-size: 14px">Change payment date</a>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{tabDocs}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3vw, 36px); text-transform: uppercase">Documents</h1>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border: 1px solid #262A30; border-radius: 18px; overflow: hidden">
+<sc-for list="{{docs}}" as="d" hint-placeholder-count="5">
+<li style="display: flex; flex-wrap: wrap; align-items: center; gap: 14px; padding: 16px 20px; background: #15171B; border-bottom: 1px solid #22252B">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#D6B370" stroke-width="1.6" stroke-linejoin="round"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4"></path></svg>
+<span style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 2px"><strong style="font-size: 15px; font-weight: 600">{{d.name}}</strong><span style="font-size: 13px; color: #8D9199">{{d.meta}}</span></span>
+<a href="#download" style="font-size: 14px; color: #D6B370; padding: 8px 0">Download PDF</a>
+</li>
+</sc-for>
+</ul>
+</div>
+</sc-if>
+
+<sc-if value="{{tabSaved}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3vw, 36px); text-transform: uppercase">Saved cars</h1>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px">
+<sc-for list="{{saved}}" as="c" hint-placeholder-count="3">
+<article style="background: #15171B; border: 1px solid #262A30; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="width: 100%; height: 6px; border-radius: 999px; background: {{c.paint}}"></span>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 18px">{{c.name}}</h2>
+<span style="font-size: 14px; color: #8D9199">{{c.meta}}</span>
+<span style="font-weight: 600">{{c.price}}</span>
+<span style="font-size: 13px; color: {{c.noteColor}}">{{c.note}}</span>
+<a href="car.html" style="align-self: flex-start; font-size: 14px; color: #D6B370; padding: 6px 0">View listing</a>
+</article>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+</main>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { screen: 'password', tab: 'overview', done: { 0: true } };
+  }
+  renderVals() {
+    const s = this.state;
+    const tabs = [['overview', 'Overview'], ['finance', 'Finance'], ['docs', 'Documents'], ['saved', 'Saved cars']];
+    const nav = tabs.map(([id, label]) => {
+      const on = s.tab === id;
+      return { label, current: on ? 'page' : 'false', pick: () => this.setState({ tab: id }),
+        style: 'text-align: left; min-height: 46px; padding: 0 16px; border-radius: 12px; border: 0; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; background: ' + (on ? '#1C1A14' : 'transparent') + '; color: ' + (on ? '#D6B370' : '#B7BAC0') };
+    });
+
+    const stepList = [['Reserved', '2 Oct'], ['Finance approved', '4 Oct'], ['Inspected', '21 Oct'], ['Out for delivery', 'Est. 28 Oct'], ['Delivered', 'Est. 29 Oct']];
+    const reached = 3;
+    const steps = stepList.map(([label, date], i) => ({
+      label, date,
+      color: i < reached ? '#F2F1EC' : '#8D9199',
+      bar: 'display: block; height: 4px; border-radius: 999px; background: ' + (i < reached ? '#D6B370' : '#2A2E35')
+    }));
+
+    const todoList = [['Upload driving licence', 'Done'], ['Pick a delivery slot', 'By 26 Oct'], ['Book home charger survey', 'Optional']];
+    const todos = todoList.map(([label, due], i) => {
+      const on = !!s.done[i];
+      return { label, due, checked: on ? 'true' : 'false', mark: on ? '✓' : '',
+        toggle: () => this.setState({ done: { ...s.done, [i]: !on } }),
+        textStyle: on ? 'color: #8D9199; text-decoration: line-through' : 'color: #F2F1EC',
+        box: 'width: 28px; height: 28px; flex: none; border-radius: 8px; cursor: pointer; font: inherit; font-weight: 700; display: flex; align-items: center; justify-content: center; border: 1px solid ' + (on ? '#D6B370' : '#4A4F57') + '; background: ' + (on ? '#D6B370' : 'transparent') + '; color: #0B0C0E' };
+    });
+
+    const agreement = [
+      ['Amount borrowed', '$55,120'], ['APR (fixed)', '7.9%'], ['Term', '48 months'], ['Monthly payment', '$1,343'],
+      ['Started', '1 Apr 2026'], ['Final payment', '1 Mar 2030'], ['Total payable', '$78,249'], ['Lender', '[LENDER NAME]']
+    ].map(([k, v]) => ({ k, v }));
+
+    const P = 55120, r = 0.079 / 12, pmt = 1343.1;
+    let bal = P * Math.pow(1 + r, 7) - pmt * (Math.pow(1 + r, 7) - 1) / r;
+    const months = ['1 Nov 2026', '1 Dec 2026', '1 Jan 2027', '1 Feb 2027', '1 Mar 2027', '1 Apr 2027'];
+    const money = (n) => '$' + Math.round(n).toLocaleString('en-US');
+    const schedule = months.map((due, i) => {
+      const int = bal * r; bal = bal + int - pmt;
+      return { n: String(8 + i), due, pay: money(pmt), int: money(int), bal: money(bal) };
+    });
+
+    const docs = [
+      ['Finance agreement (signed)', '4 Oct 2026 · 12 pages'], ['Pre-contract credit information', '3 Oct 2026 · 4 pages'],
+      ['Sales invoice NDV-20418', '4 Oct 2026 · 1 page'], ['Pre-delivery inspection report', '21 Oct 2026 · 9 pages'],
+      ['Battery warranty certificate', '21 Oct 2026 · 2 pages']
+    ].map(([name, meta]) => ({ name, meta }));
+
+    const saved = [
+      { name: 'Halden Strata 7', meta: 'New · 2026 · Seven-seat', price: '$74,800', paint: '#25352B', note: 'In stock', noteColor: '#8FD3C7' },
+      { name: 'Morrow Arc', meta: 'New · 2026 · Performance', price: '$52,300', paint: '#5E1F26', note: 'Price dropped $1,200', noteColor: '#D6B370' },
+      { name: 'Kaelis S7', meta: 'Pre-owned · 2023 · 28,400 km', price: '$34,500', paint: '#8C9096', note: 'Reserved by another buyer', noteColor: '#8D9199' }
+    ];
+
+    return {
+      isSignIn: s.screen !== 'dash', isPassword: s.screen === 'password', isCode: s.screen === 'code', isDash: s.screen === 'dash',
+      toCode: () => this.setState({ screen: 'code' }), toPassword: () => this.setState({ screen: 'password' }),
+      toDash: () => this.setState({ screen: 'dash', tab: 'overview' }), signOut: () => this.setState({ screen: 'password' }),
+      goFinance: () => this.setState({ tab: 'finance' }),
+      nav, steps, todos, agreement, schedule, docs, saved,
+      tabOverview: s.tab === 'overview', tabFinance: s.tab === 'finance', tabDocs: s.tab === 'docs', tabSaved: s.tab === 'saved'
+    };
+  }
+}
+</script>
+</body>
+</html>

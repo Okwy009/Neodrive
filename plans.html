@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Financing and fleet plans — NeoDrive</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NeoDrive: new and pre-owned electric cars with clear delivered prices and transparent financing.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<style>x-dc{display:none}</style>
+<script src="assets/dc-lite.js" defer></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,600;125,800&amp;family=Instrument+Sans:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#0B0C0E}
+a{color:#F2F1EC}a:hover{color:#E2C48A}
+</style>
+</helmet>
+<div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #F2F1EC; background: #0B0C0E; min-height: 100vh">
+
+<div style="background: #15171B; border-bottom: 1px solid #22252B; text-align: center; padding: 9px 16px; font-size: 13px; color: #B7BAC0">Preview build · terms in brackets are set before launch</div>
+
+<header style="border-bottom: 1px solid #22252B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
+<svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+</a>
+<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 15px; font-weight: 500">
+<a href="index.html" style="text-decoration: none; padding: 12px 0">Cars</a>
+<a href="#top" style="text-decoration: none; padding: 12px 0; color: #D6B370">Financing &amp; plans</a>
+<a href="#regulation" style="text-decoration: none; padding: 12px 0">Regulation</a>
+</nav>
+</div>
+</header>
+
+<section id="top" style="max-width: 1280px; margin: 0 auto; padding: 72px 24px 40px; display: flex; flex-direction: column; gap: 28px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #D6B370">Money matters</div>
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(36px, 5.5vw, 68px); line-height: 1; letter-spacing: -0.02em; text-transform: uppercase; max-width: 980px">Every rate, fee and risk on one page.</h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.6; color: #B7BAC0; max-width: 640px">Read the full terms here before you share any personal details. If something isn't on this page, we don't charge for it.</p>
+<div role="tablist" aria-label="Product" style="display: flex; gap: 4px; padding: 4px; background: #15171B; border: 1px solid #2A2E35; border-radius: 999px; align-self: flex-start; flex-wrap: wrap">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="2">
+<button type="button" role="tab" aria-selected="{{t.selected}}" onClick="{{t.pick}}" style="{{t.style}}">{{t.label}}</button>
+</sc-for>
+</div>
+</section>
+
+<section aria-label="Regulatory status" style="max-width: 1280px; margin: 0 auto; padding: 0 24px 56px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1px; background: #22252B; border: 1px solid #22252B; border-radius: 18px; overflow: hidden">
+<div style="background: #111316; padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#8FD3C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 2px"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 15px">Car finance</strong><span style="color: #B7BAC0; font-size: 14px; line-height: 1.5">Provided by [LENDER NAME], licensed by [REGULATOR], ref. [LICENCE NO.]</span></div>
+</div>
+<div style="background: #111316; padding: 20px 24px; display: flex; gap: 14px; align-items: flex-start">
+<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#D6B370" stroke-width="1.8" stroke-linecap="round" style="flex: none; margin-top: 2px"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 15px">Fleet plans · authorisation pending</strong><span style="color: #B7BAC0; font-size: 14px; line-height: 1.5">Application with [REGULATOR], ref. [APPLICATION NO.]. No money accepted until approved.</span></div>
+</div>
+<a href="#regulation" style="background: #111316; padding: 20px 24px; display: flex; align-items: center; justify-content: space-between; gap: 12px; text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 4px"><strong style="font-size: 15px">Verify us yourself</strong><span style="color: #B7BAC0; font-size: 14px">Links to each public register</span></span>
+<span aria-hidden="true" style="font-size: 20px; color: #D6B370">→</span>
+</a>
+</div>
+</section>
+
+<sc-if value="{{isFinance}}" hint-placeholder-val="{{ true }}">
+<section style="background: #111316; border-top: 1px solid #22252B; border-bottom: 1px solid #22252B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3.5vw, 40px); line-height: 1.05; text-transform: uppercase">Fixed-instalment car finance</h2>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.65; font-size: 17px">You pay a deposit, then the same amount each month. The car is yours after the last payment. Until then the lender owns it.</p>
+<div style="background: #15171B; border: 1px solid #262A30; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D6B370; letter-spacing: 0.1em; text-transform: uppercase">Representative example (sample)</span>
+<p style="margin: 0; line-height: 1.6; font-size: 15px">Car price $68,900. Deposit $13,780. 48 monthly payments of $1,343. Representative 7.9% APR fixed. Total amount payable $78,249.</p>
+</div>
+</div>
+<dl style="flex: 1 1 480px; min-width: 0; margin: 0; background: #15171B; border: 1px solid #262A30; border-radius: 18px; padding: 8px 24px">
+<sc-for list="{{financeFacts}}" as="f" hint-placeholder-count="7">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding: 14px 0; border-bottom: 1px solid #22252B"><dt style="color: #8D9199; font-size: 14px">{{f.k}}</dt><dd style="margin: 0; font-weight: 600; text-align: right">{{f.v}}</dd></div>
+</sc-for>
+</dl>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">All fees</h3>
+<div style="overflow-x: auto; border: 1px solid #262A30; border-radius: 16px">
+<table style="width: 100%; min-width: 600px; border-collapse: collapse; font-size: 15px">
+<thead><tr style="background: #15171B; text-align: left"><th scope="col" style="padding: 14px 20px; font-weight: 600; color: #B7BAC0">Fee</th><th scope="col" style="padding: 14px 20px; font-weight: 600; color: #B7BAC0">When it applies</th><th scope="col" style="padding: 14px 20px; font-weight: 600; color: #B7BAC0; text-align: right">Amount</th></tr></thead>
+<tbody data-for="{{financeFees}}" data-as="fee">
+<tr style="border-top: 1px solid #22252B"><td style="padding: 14px 20px; font-weight: 600">{{fee.name}}</td><td style="padding: 14px 20px; color: #B7BAC0">{{fee.when}}</td><td style="padding: 14px 20px; text-align: right; font-family: 'JetBrains Mono', monospace">{{fee.amt}}</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">Before you borrow</h3>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<sc-for list="{{financeRisks}}" as="r" hint-placeholder-count="4">
+<li style="background: #15171B; border: 1px solid #262A30; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px"><strong style="font-size: 16px">{{r.t}}</strong><span style="color: #B7BAC0; line-height: 1.55; font-size: 15px">{{r.d}}</span></li>
+</sc-for>
+</ul>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px">
+<a href="index.html#finance" style="text-decoration: none; padding: 15px 24px; background: #D6B370; color: #0B0C0E; border-radius: 999px; font-weight: 600">Estimate my payment</a>
+<span style="color: #8D9199; font-size: 14px">Checking your rate uses a soft search and doesn't affect your credit score.</span>
+</div>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isPlans}}" hint-placeholder-val="{{ false }}">
+<section style="background: #111316; border-top: 1px solid #22252B; border-bottom: 1px solid #22252B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 72px 24px; display: flex; flex-direction: column; gap: 40px">
+
+<div role="alert" style="border: 1px solid #6B5530; background: #1A1710; border-radius: 18px; padding: 22px 24px; display: flex; gap: 16px; align-items: flex-start">
+<svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#D6B370" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M12 3 2 20h20z"></path><path d="M12 10v4M12 17v.5"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 6px"><strong style="font-size: 17px">Your capital is at risk. You could lose all the money you put in.</strong><span style="color: #D8CDB5; line-height: 1.55">Fleet plans are not savings accounts, are not covered by deposit protection, and have no guaranteed payout. Payouts are not funded by new members' money.</span></div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3.5vw, 40px); line-height: 1.05; text-transform: uppercase">Choose a plan to see its key facts</h2>
+<div role="radiogroup" aria-label="Plan" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px">
+<sc-for list="{{plans}}" as="p" hint-placeholder-count="3">
+<button type="button" role="radio" aria-checked="{{p.checked}}" onClick="{{p.pick}}" style="{{p.style}}">
+<span style="display: block; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 18px">{{p.name}}</span>
+<span style="display: block; margin-top: 6px; font-size: 14px; color: #B7BAC0; line-height: 1.5">{{p.blurb}}</span>
+</button>
+</sc-for>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 32px">
+<dl style="flex: 1 1 460px; min-width: 0; margin: 0; background: #15171B; border: 1px solid #262A30; border-radius: 18px; padding: 8px 24px">
+<sc-for list="{{planFacts}}" as="f" hint-placeholder-count="8">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 20px; padding: 14px 0; border-bottom: 1px solid #22252B"><dt style="color: #8D9199; font-size: 14px">{{f.k}}</dt><dd style="margin: 0; font-weight: 600; text-align: right">{{f.v}}</dd></div>
+</sc-for>
+</dl>
+<div style="flex: 1 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 20px">Where lease income goes</h3>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.6; font-size: 15px">Each month, drivers' lease payments are paid out in this order. Plan holders are paid last, from whatever is left.</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{waterfall}}" as="w" hint-placeholder-count="5">
+<li style="display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: #15171B; border: 1px solid #262A30; border-radius: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #D6B370; width: 22px">{{w.n}}</span>
+<span style="flex: 1; font-size: 15px">{{w.label}}</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #B7BAC0">{{w.share}}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">All fees</h3>
+<div style="overflow-x: auto; border: 1px solid #262A30; border-radius: 16px">
+<table style="width: 100%; min-width: 600px; border-collapse: collapse; font-size: 15px">
+<thead><tr style="background: #15171B; text-align: left"><th scope="col" style="padding: 14px 20px; font-weight: 600; color: #B7BAC0">Fee</th><th scope="col" style="padding: 14px 20px; font-weight: 600; color: #B7BAC0">When it applies</th><th scope="col" style="padding: 14px 20px; font-weight: 600; color: #B7BAC0; text-align: right">Amount</th></tr></thead>
+<tbody data-for="{{planFees}}" data-as="fee">
+<tr style="border-top: 1px solid #22252B"><td style="padding: 14px 20px; font-weight: 600">{{fee.name}}</td><td style="padding: 14px 20px; color: #B7BAC0">{{fee.when}}</td><td style="padding: 14px 20px; text-align: right; font-family: 'JetBrains Mono', monospace">{{fee.amt}}</td></tr>
+</tbody>
+</table>
+</div>
+<p style="margin: 0; font-size: 14px; color: #8D9199">No other charges. We never ask for "release", "tax clearance" or "upgrade" payments before paying you out.</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">What can go wrong</h3>
+<ul style="margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px">
+<sc-for list="{{planRisks}}" as="r" hint-placeholder-count="6">
+<li style="background: #15171B; border: 1px solid #262A30; border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 10px">
+<span style="{{r.badge}}">{{r.level}}</span>
+<strong style="font-size: 16px">{{r.t}}</strong>
+<span style="color: #B7BAC0; line-height: 1.55; font-size: 15px">{{r.d}}</span>
+</li>
+</sc-for>
+</ul>
+</div>
+
+<form id="waitlist" aria-label="Join the waitlist" style="background: #15171B; border: 1px solid #262A30; border-radius: 22px; padding: 28px; display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end">
+<div style="flex: 1 1 100%; display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">Get told when plans open in your country</h3>
+<p style="margin: 0; color: #B7BAC0; font-size: 15px">We only collect your email and country. No payment, no ID.</p>
+</div>
+<label style="flex: 1 1 260px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Email<input type="email" autocomplete="email" style="min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #0B0C0E; color: #F2F1EC; font: inherit"></label>
+<label style="flex: 1 1 200px; display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Country<input type="text" autocomplete="country-name" style="min-height: 48px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #0B0C0E; color: #F2F1EC; font: inherit"></label>
+<button type="button" onClick="{{joinWaitlist}}" style="flex: 0 0 auto; min-height: 48px; padding: 0 24px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Join waitlist</button>
+<sc-if value="{{joined}}" hint-placeholder-val="{{ false }}">
+<p role="status" style="flex: 1 1 100%; margin: 0; padding: 14px 16px; border-radius: 12px; background: #0F1A18; border: 1px solid #2E5A52; color: #CBEDE6">You're on the list. We'll email you once, when plans open where you live.</p>
+</sc-if>
+</form>
+
+</div>
+</section>
+</sc-if>
+
+<section id="regulation" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 760px">
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #D6B370">Regulation and protection</div>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; text-transform: uppercase">Who oversees us, and how to check.</h2>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.65; font-size: 17px">Don't take our word for it. Search each reference below on the regulator's own website, not through a link someone sends you.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+<sc-for list="{{regs}}" as="g" hint-placeholder-count="6">
+<article style="background: #111316; border: 1px solid #262A30; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 12px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8D9199; letter-spacing: 0.08em; text-transform: uppercase">{{g.k}}</span>
+<span style="font-weight: 600; font-size: 17px; line-height: 1.4">{{g.v}}</span>
+<span style="color: #B7BAC0; font-size: 14px; line-height: 1.5">{{g.d}}</span>
+</article>
+</sc-for>
+</div>
+</section>
+
+<footer style="border-top: 1px solid #22252B">
+<div style="max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; font-size: 14px; color: #8D9199">
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">NeoDrive</span>
+<p style="margin: 0; line-height: 1.6; max-width: 900px">NeoDrive is a trading name of [REGISTERED COMPANY NAME], registered in [COUNTRY] under no. [NUMBER]. Credit is provided by [LENDER NAME]. Fleet plans are offered only in countries where we hold authorisation, listed above. Capital at risk.</p>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'finance', plan: 0, joined: false };
+  }
+  renderVals() {
+    const s = this.state;
+    const tabStyle = (on) => 'min-height: 48px; padding: 0 22px; border: 0; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; background: ' + (on ? '#F2F1EC' : 'transparent') + '; color: ' + (on ? '#0B0C0E' : '#B7BAC0');
+    const tabs = [['finance', 'Car finance'], ['plans', 'Fleet plans']].map(([id, label]) => ({
+      label, selected: s.tab === id ? 'true' : 'false', pick: () => this.setState({ tab: id }), style: tabStyle(s.tab === id)
+    }));
+
+    const financeFacts = [
+      ['APR range', '[MIN]% – [MAX]% fixed'], ['Term', '12 to 72 months'], ['Deposit', '0% to 50% of the price'],
+      ['Amount you can borrow', '[MIN AMOUNT] – [MAX AMOUNT]'], ['Who owns the car', 'Lender, until the final payment'],
+      ['Early settlement', 'Allowed at any time'], ['Cooling-off period', '14 days after signing']
+    ].map(([k, v]) => ({ k, v }));
+    const financeFees = [
+      ['Arrangement fee', 'Once, added to the first payment', '[AMOUNT]'],
+      ['Late payment fee', 'Each missed or late instalment', '[AMOUNT]'],
+      ['Early settlement', 'Paying off before the end of the term', '[e.g. 1 month interest]'],
+      ['Option-to-purchase fee', 'With the final payment', '[AMOUNT]'],
+      ['Documentation', 'Paper copies on request', 'Free']
+    ].map(([name, when, amt]) => ({ name, when, amt }));
+    const financeRisks = [
+      { t: 'The car can be taken back', d: 'If you fall behind on payments, the lender can repossess the car after giving notice.' },
+      { t: 'Your credit file is affected', d: 'Missed payments are reported to credit agencies and can make future borrowing harder.' },
+      { t: 'You pay more than the cash price', d: 'Interest means the total payable is higher. Compare it with the cash price before you sign.' },
+      { t: 'Make sure it’s affordable', d: 'Check you can keep up payments if your income drops. Free debt advice: [LOCAL ADVICE SERVICE].' }
+    ];
+
+    const planList = [
+      { name: 'Single vehicle', blurb: 'Fund one specific car. Simple, but all your risk sits on one driver.',
+        facts: [['Minimum', '[AMOUNT]'], ['Term', '[MONTHS] months'], ['What you fund', 'One named vehicle (plate and VIN shown)'], ['Payouts', 'Monthly, from that car’s lease income'], ['Target payout', '[RANGE] — not guaranteed'], ['Early exit', '[TERMS]'], ['At term end', 'Car sold; your share of proceeds returned'], ['Risk level', 'High']] },
+      { name: 'Pooled fleet', blurb: 'Spread across [N] cars, so one bad lease hurts less.',
+        facts: [['Minimum', '[AMOUNT]'], ['Term', '[MONTHS] months'], ['What you fund', 'A share of a pool of [N] vehicles'], ['Payouts', 'Monthly, from the pool’s lease income'], ['Target payout', '[RANGE] — not guaranteed'], ['Early exit', '[TERMS]'], ['At term end', 'Cars sold; your share of proceeds returned'], ['Risk level', 'High']] },
+      { name: 'Driver-to-own', blurb: 'The driver buys the car from the plan over the term.',
+        facts: [['Minimum', '[AMOUNT]'], ['Term', '[MONTHS] months'], ['What you fund', 'One vehicle on a lease-to-own contract'], ['Payouts', 'Monthly, from the driver’s instalments'], ['Target payout', '[RANGE] — not guaranteed'], ['Early exit', 'Not available'], ['At term end', 'Driver owns the car; no sale proceeds'], ['Risk level', 'High']] }
+    ];
+    const plans = planList.map((p, i) => {
+      const on = s.plan === i;
+      return { name: p.name, blurb: p.blurb, checked: on ? 'true' : 'false', pick: () => this.setState({ plan: i }),
+        style: 'text-align: left; min-height: 44px; padding: 20px; border-radius: 16px; font: inherit; color: #F2F1EC; cursor: pointer; background: ' + (on ? '#1C1A14' : '#15171B') + '; border: 1px solid ' + (on ? '#D6B370' : '#262A30') };
+    });
+    const planFacts = planList[s.plan].facts.map(([k, v]) => ({ k, v }));
+    const waterfall = [
+      ['Insurance and road tax', '[X]%'], ['Servicing, tyres and repairs', '[X]%'], ['Default and damage reserve', '[X]%'],
+      ['NeoDrive management fee', '[X]%'], ['Paid to plan holders', 'Remainder']
+    ].map(([label, share], i) => ({ n: String(i + 1).padStart(2, '0'), label, share }));
+    const planFees = [
+      ['Management fee', 'Yearly, taken from lease income', '[X]% a year'],
+      ['Setup fee', 'Once, when you join', '[AMOUNT or none]'],
+      ['Early exit fee', 'Leaving before the term ends', '[X]% of your balance'],
+      ['Vehicle sale fee', 'When cars are sold at term end', '[X]% of sale price'],
+      ['Withdrawal to your bank', 'Each payout', 'Free']
+    ].map(([name, when, amt]) => ({ name, when, amt }));
+    const high = 'align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #3A1A1A; color: #F2B8B0';
+    const med = 'align-self: flex-start; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; background: #2E2614; color: #E8D3A4';
+    const planRisks = [
+      { level: 'High', badge: high, t: 'Drivers stop paying', d: 'If drivers default, income falls until the car is recovered and re-leased, which can take months.' },
+      { level: 'High', badge: high, t: 'Cars lose value', d: 'EV resale prices can fall sharply. The sale at term end may return much less than you put in.' },
+      { level: 'High', badge: high, t: 'NeoDrive fails', d: 'If the company goes under, recovering your share of the vehicles may be slow, costly or partial.' },
+      { level: 'Medium', badge: med, t: 'Accidents and theft', d: 'Insurance covers most losses, but excesses and time off the road reduce payouts.' },
+      { level: 'Medium', badge: med, t: 'Your money is locked in', d: 'Plans are long-term. Leaving early may not be possible, or may cost an exit fee.' },
+      { level: 'Medium', badge: med, t: 'Rules can change', d: 'Changes to ride-hail licensing or EV incentives in a city can cut lease demand.' }
+    ];
+
+    const regs = [
+      { k: 'Legal entity', v: '[REGISTERED COMPANY NAME]', d: 'Company no. [NUMBER], [COMPANIES REGISTRY]' },
+      { k: 'Credit licence', v: '[LENDER NAME] · [REGULATOR]', d: 'Licence ref. [NUMBER]. Search it on [REGULATOR]’s public register.' },
+      { k: 'Fleet plan authorisation', v: 'Pending · [REGULATOR]', d: 'Application ref. [NUMBER]. Plans stay closed until this shows as approved.' },
+      { k: 'Client money', v: 'Held at [BANK NAME]', d: 'In a segregated client account, separate from NeoDrive’s own money.' },
+      { k: 'Compensation scheme', v: '[SCHEME NAME] or "Not covered"', d: 'State plainly whether plan holders are protected if NeoDrive fails.' },
+      { k: 'Complaints', v: '[COMPLAINTS EMAIL]', d: 'Reply within [X] days. If unresolved, contact [OMBUDSMAN / DISPUTE BODY].' }
+    ];
+
+    return {
+      tabs, isFinance: s.tab === 'finance', isPlans: s.tab === 'plans',
+      financeFacts, financeFees, financeRisks, plans, planFacts, waterfall, planFees, planRisks, regs,
+      joined: s.joined, joinWaitlist: () => this.setState({ joined: true })
+    };
+  }
+}
+</script>
+</body>
+</html>
