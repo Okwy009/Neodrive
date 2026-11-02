@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NeoDrive — Electric cars, bought properly</title>
+<title>Vision Enterprise — Electric cars, bought properly</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NeoDrive: new and pre-owned electric cars with clear delivered prices and transparent financing.">
+<meta name="description" content="Vision Enterprise: new and pre-owned electric cars with clear delivered prices and transparent financing.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>x-dc{display:none}</style>
 <script src="assets/dc-lite.js" defer></script>
@@ -18,6 +18,34 @@
 body{margin:0;background:#0B0C0E}
 a{color:#F2F1EC}a:hover{color:#E2C48A}
 input[type=range]{accent-color:#D6B370}
+@keyframes nd-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.nd-ticker-track{animation:nd-scroll 45s linear infinite}
+.nd-ticker:hover .nd-ticker-track{animation-play-state:paused}
+@media (prefers-reduced-motion: reduce){.nd-ticker-track{animation:none}}
+.nd-photo{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center;background-repeat:no-repeat}
+.nd-slot-label{position:absolute;left:12px;bottom:10px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8D9199;background:rgba(11,12,14,.75);padding:4px 8px;border-radius:6px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis;box-sizing:border-box}
+.ph-hero{background-image:url(assets/cars/hero.jpg)}
+.ph-tesla-cybertruck-cyberbeast{background-image:url(assets/cars/tesla-cybertruck-cyberbeast.jpg)}
+.ph-tesla-cybertruck-all-wheel-drive{background-image:url(assets/cars/tesla-cybertruck-all-wheel-drive.jpg)}
+.ph-tesla-model-s-plaid{background-image:url(assets/cars/tesla-model-s-plaid.jpg)}
+.ph-tesla-model-s-dual-motor-awd{background-image:url(assets/cars/tesla-model-s-dual-motor-awd.jpg)}
+.ph-tesla-model-s-signature-edition{background-image:url(assets/cars/tesla-model-s-signature-edition.jpg)}
+.ph-tesla-model-x-plaid{background-image:url(assets/cars/tesla-model-x-plaid.jpg)}
+.ph-tesla-model-x-dual-motor-awd{background-image:url(assets/cars/tesla-model-x-dual-motor-awd.jpg)}
+.ph-tesla-roadster-performance{background-image:url(assets/cars/tesla-roadster-performance.jpg)}
+.nd-menu-btn{display:none}
+@media (min-width: 761px){.nd-mobile{display:none !important}}
+@media (max-width: 760px){
+.nd-desktop{display:none !important}
+.nd-menu-btn{display:inline-flex}
+[style*="padding: 88px 24px"]{padding-top:56px !important;padding-bottom:56px !important;padding-left:20px !important;padding-right:20px !important}
+[style*="padding: 80px 24px 64px"]{padding:36px 20px 48px !important;gap:32px !important}
+[style*="padding: 0 24px 88px"]{padding:0 20px 56px !important}
+[style*="min-height: 170px"]{min-height:0 !important;padding:22px !important}
+[style*="padding: 18px 32px"]{padding:14px 20px !important}
+[style*="padding: 28px 32px 0"]{padding:22px 20px 0 !important}
+[style*="padding: 28px; display: flex; flex-direction: column; gap: 22px"]{padding:20px !important}
+}
 </style>
 </helmet>
 <div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #F2F1EC; background: #0B0C0E; min-height: 100vh">
@@ -28,21 +56,41 @@ input[type=range]{accent-color:#D6B370}
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
 <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">Vision Enterprise</span>
 </a>
-<nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 15px; font-weight: 500">
+<nav aria-label="Main" class="nd-desktop" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 15px; font-weight: 500">
 <a href="#cars" style="text-decoration: none; padding: 12px 0">Cars</a>
 <a href="#finance" style="text-decoration: none; padding: 12px 0">Financing</a>
 <a href="plans.html" style="text-decoration: none; padding: 12px 0">Fleet plans</a>
 <a href="#company" style="text-decoration: none; padding: 12px 0">Company</a>
 <a href="#faq" style="text-decoration: none; padding: 12px 0">FAQ</a>
 </nav>
-<div style="display: flex; gap: 8px">
+<div class="nd-desktop" style="display: flex; gap: 8px">
 <a href="account.html" style="text-decoration: none; padding: 12px 18px; font-weight: 600; font-size: 15px">Sign in</a>
 <a href="#cars" style="text-decoration: none; padding: 12px 20px; background: {{accent}}; color: #0B0C0E; border-radius: 999px; font-weight: 600; font-size: 15px">Browse cars</a>
 </div>
+<button type="button" class="nd-menu-btn" onClick="{{toggleMenu}}" aria-expanded="{{menuOpen}}" aria-label="{{menuLabel}}" style="width: 44px; height: 44px; align-items: center; justify-content: center; border: 1px solid #3A3F47; border-radius: 12px; background: none; color: #F2F1EC; cursor: pointer; padding: 0"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path data-dc-attr-d="{{menuIcon}}"></path></svg></button>
 </div>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<nav aria-label="Mobile" class="nd-mobile" style="border-top: 1px solid #22252B; padding: 4px 20px 20px; display: flex; flex-direction: column">
+<a href="#cars" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">Cars</a>
+<a href="#finance" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">Financing</a>
+<a href="plans.html" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">Fleet plans</a>
+<a href="#company" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">Company</a>
+<a href="#faq" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">FAQ</a>
+<a href="account.html" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500">Sign in</a>
+<a href="#cars" onClick="{{closeMenu}}" style="margin-top: 12px; text-align: center; text-decoration: none; padding: 15px 20px; background: {{accent}}; color: #0B0C0E; border-radius: 999px; font-weight: 600">Browse cars</a>
+</nav>
+</sc-if>
 </header>
+
+<div class="nd-ticker" role="region" aria-label="Showroom updates" style="border-bottom: 1px solid #22252B; background: #0E0F12; overflow: hidden">
+<div class="nd-ticker-track" style="display: flex; width: max-content">
+<sc-for list="{{tick}}" as="t" hint-placeholder-count="12">
+<span aria-hidden="{{t.hidden}}" style="display: inline-flex; align-items: center; gap: 10px; padding: 12px 28px; font-size: 13px; white-space: nowrap; border-right: 1px solid #22252B"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: {{t.color}}">{{t.tag}}</span><span style="color: #D5D7DB">{{t.text}}</span></span>
+</sc-for>
+</div>
+</div>
 
 <section id="top" style="max-width: 1280px; margin: 0 auto; padding: 80px 24px 64px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-end; justify-content: space-between">
@@ -67,6 +115,7 @@ input[type=range]{accent-color:#D6B370}
 </div>
 <span style="align-self: flex-start; padding: 10px 16px; border: 1px solid #3A3F47; border-radius: 999px; font-weight: 600; font-size: 14px">View car →</span>
 </div>
+<div style="position: relative; aspect-ratio: 3 / 1; overflow: hidden">
 <svg viewBox="0 0 1000 330" role="img" aria-label="Side profile of a dark slate electric grand tourer" style="display: block; width: 100%; height: auto; max-height: 420px">
 <defs>
 <linearGradient id="heroBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4A5563"></stop><stop offset="0.55" stop-color="#2B3440"></stop><stop offset="1" stop-color="#151A20"></stop></linearGradient>
@@ -87,6 +136,9 @@ input[type=range]{accent-color:#D6B370}
 <g stroke="#9AA0A8" stroke-width="5" stroke-linecap="round"><path d="M236 226v72M200 262h72M211 237l50 50M261 237l-50 50"></path><path d="M796 226v72M760 262h72M771 237l50 50M821 237l-50 50"></path></g>
 <circle cx="236" cy="262" r="10" fill="#D6B370"></circle><circle cx="796" cy="262" r="10" fill="#D6B370"></circle>
 </svg>
+<span class="nd-slot-label">Photo slot · 2400 × 800 · assets/cars/hero.jpg</span>
+<div class="nd-photo ph-hero" role="img" aria-label="Featured car photo"></div>
+</div>
 <dl style="margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); border-top: 1px solid #262A30">
 <div style="padding: 18px 32px; border-right: 1px solid #262A30"><dt style="font-size: 12px; color: #8D9199">Range (WLTP)</dt><dd style="margin: 4px 0 0; font-weight: 600; font-size: 18px">612 km</dd></div>
 <div style="padding: 18px 32px; border-right: 1px solid #262A30"><dt style="font-size: 12px; color: #8D9199">0–100 km/h</dt><dd style="margin: 4px 0 0; font-weight: 600; font-size: 18px">4.1 s</dd></div>
@@ -94,6 +146,16 @@ input[type=range]{accent-color:#D6B370}
 <div style="padding: 18px 32px"><dt style="font-size: 12px; color: #8D9199">Delivered from</dt><dd style="margin: 4px 0 0; font-weight: 600; font-size: 18px">{{heroPrice}} · {{heroMonthly}}/mo</dd></div>
 </dl>
 </a>
+</section>
+
+<section aria-label="EV market prices" style="border-top: 1px solid #22252B; border-bottom: 1px solid #22252B; background: #0E0F12; margin-bottom: 64px">
+<div style="max-width: 1280px; margin: 0 auto; padding: 14px 24px 4px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: #D6B370">EV market · live prices</span>
+<span style="font-size: 12px; color: #8D9199">Data by <a href="https://www.tradingview.com/" rel="noopener nofollow" style="color: #B7BAC0">TradingView</a>. Real-time where the exchange allows, otherwise delayed. Information only; Vision Enterprise does not offer share trading.</span>
+</div>
+<div data-dc-slot="market-tape" style="min-height: 46px; display: flex; align-items: center; max-width: 1280px; margin: 0 auto; padding: 0 24px; box-sizing: border-box">
+<span style="font-size: 13px; color: #6F747C">Tesla · Rivian · Lucid · NIO · XPeng · Li Auto · GM · Ford · Toyota · Albemarle · S&amp;P 500 · Brent crude (live prices load on the published site)</span>
+</div>
 </section>
 
 <section aria-label="Ways to drive" style="max-width: 1280px; margin: 0 auto; padding: 0 24px 88px">
@@ -135,9 +197,9 @@ input[type=range]{accent-color:#D6B370}
 </div>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 20px">
-<sc-for list="{{cars}}" as="car" hint-placeholder-count="6">
+<sc-for list="{{cars}}" as="car" hint-placeholder-count="8">
 <article style="background: #15171B; border: 1px solid #262A30; border-radius: 18px; overflow: hidden; display: flex; flex-direction: column">
-<div style="position: relative; background: radial-gradient(110% 80% at 50% 100%, #2A2D33 0%, #1A1C21 55%, #141619 100%); padding: 14px 14px 6px">
+<div style="position: relative; aspect-ratio: 16 / 10; overflow: hidden; display: flex; align-items: center; box-sizing: border-box; background: radial-gradient(110% 80% at 50% 100%, #2A2D33 0%, #1A1C21 55%, #141619 100%); padding: 14px 14px 6px">
 <span style="{{car.tagStyle}}">{{car.cond}}</span>
 <svg viewBox="0 0 1000 330" role="img" aria-label="{{car.alt}}" style="display: block; width: 100%; height: auto; margin-top: 8px">
 <ellipse cx="510" cy="292" rx="460" ry="20" fill="#000" fill-opacity="0.45"></ellipse>
@@ -148,6 +210,8 @@ input[type=range]{accent-color:#D6B370}
 <circle cx="236" cy="262" r="52" fill="#1C1F24" stroke="#30343B" stroke-width="10"></circle><circle cx="796" cy="262" r="52" fill="#1C1F24" stroke="#30343B" stroke-width="10"></circle>
 <circle cx="236" cy="262" r="12" fill="#8D9199"></circle><circle cx="796" cy="262" r="12" fill="#8D9199"></circle>
 </svg>
+<span class="nd-slot-label">{{car.slug}}.jpg · 1600×1000</span>
+<div class="nd-photo {{car.photoClass}}" role="img" aria-label="{{car.name}} photo"></div>
 </div>
 <div style="padding: 20px; display: flex; flex-direction: column; gap: 16px; flex: 1">
 <div style="display: flex; flex-direction: column; gap: 4px">
@@ -226,7 +290,7 @@ input[type=range]{accent-color:#D6B370}
 </div>
 </section>
 
-<section aria-label="Why NeoDrive" style="max-width: 1280px; margin: 0 auto; padding: 88px 24px 0">
+<section aria-label="Why Vision Enterprise" style="max-width: 1280px; margin: 0 auto; padding: 88px 24px 0">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px">
 <div style="display: flex; flex-direction: column; gap: 10px"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#D6B370" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16v12H4zM8 7V5h8v2M9 12h6"></path></svg><h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 18px">Delivered price, always</h3><p style="margin: 0; color: #B7BAC0; line-height: 1.6">Shipping, registration and duties are itemised on the listing. The number you see is the number you pay.</p></div>
 <div style="display: flex; flex-direction: column; gap: 10px"><svg width="28" height="28" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#D6B370" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h7l3 3v13H7zM10 12l2 2 3-4"></path></svg><h3 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 18px">Reports up front</h3><p style="margin: 0; color: #B7BAC0; line-height: 1.6">Inspection and battery health reports are attached to every pre-owned car before you reserve it.</p></div>
@@ -264,7 +328,7 @@ input[type=range]{accent-color:#D6B370}
 <footer style="border-top: 1px solid #22252B">
 <div style="max-width: 1280px; margin: 0 auto; padding: 48px 24px; display: flex; flex-direction: column; gap: 28px; font-size: 14px; color: #8D9199">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px">
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">NeoDrive</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">Vision Enterprise</span>
 <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 8px 28px">
 <a href="#terms" style="padding: 6px 0">Terms of sale</a>
 <a href="#finance-terms" style="padding: 6px 0">Credit terms</a>
@@ -273,7 +337,7 @@ input[type=range]{accent-color:#D6B370}
 <a href="#complaints" style="padding: 6px 0">Complaints</a>
 </nav>
 </div>
-<p style="margin: 0; line-height: 1.6; max-width: 900px">NeoDrive is a trading name of [REGISTERED COMPANY NAME], registered in [COUNTRY] under no. [NUMBER]. Fleet plans are offered only where we are authorised.</p>
+<p style="margin: 0; line-height: 1.6; max-width: 900px">Vision Enterprise is a trading name of [REGISTERED COMPANY NAME], registered in [COUNTRY] under no. [NUMBER]. Fleet plans are offered only where we are authorised.</p>
 </div>
 </footer>
 
@@ -283,7 +347,7 @@ input[type=range]{accent-color:#D6B370}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { cond: 'All', open: 0, price: 68900, depositPct: 20, months: 48, apr: 7.9 };
+    this.state = { cond: 'All', open: 0, price: 68900, depositPct: 20, months: 48, apr: 7.9, menu: false };
   }
   renderVals() {
     const accent = this.props.accent ?? '#D6B370';
@@ -300,18 +364,22 @@ class Component extends DCLogic {
     const hatch = { body: 'M70 262 C66 226 84 204 136 194 L300 172 C356 116 420 90 500 88 L720 90 C790 94 840 140 880 186 L924 196 C952 204 960 222 960 248 L960 262 Z', glass: 'M332 172 C380 126 434 106 502 104 L712 106 C770 110 812 146 846 182 Z' };
 
     const all = [
-      { name: 'Vantor Eon GT', cond: 'New', meta: '2026 · 0 km · Long Range AWD', range: '612 km', k2: 'Warranty', v2: '8 yrs', charge: '250 kW', price: 68900, paint: '#2B3440', shape: sedan, alt: 'Slate grey grand tourer' },
-      { name: 'Kaelis S7', cond: 'Pre-owned', meta: '2023 · 28,400 km · 1 owner', range: '480 km', k2: 'Battery', v2: '94%', charge: '170 kW', price: 34500, paint: '#8C9096', shape: sedan, alt: 'Silver saloon' },
-      { name: 'Halden Strata 7', cond: 'New', meta: '2026 · 0 km · Seven-seat', range: '520 km', k2: 'Warranty', v2: '8 yrs', charge: '200 kW', price: 74800, paint: '#25352B', shape: suv, alt: 'Forest green seven-seat SUV' },
-      { name: 'Lumen Tide', cond: 'Pre-owned', meta: '2022 · 41,200 km · 2 owners', range: '410 km', k2: 'Battery', v2: '91%', charge: '150 kW', price: 26900, paint: '#D9D6CF', shape: hatch, alt: 'Pearl white hatchback' },
-      { name: 'Morrow Arc', cond: 'New', meta: '2026 · 0 km · Performance', range: '545 km', k2: 'Warranty', v2: '8 yrs', charge: '210 kW', price: 52300, paint: '#5E1F26', shape: sedan, alt: 'Deep red sports saloon' },
-      { name: 'Orix Pulse', cond: 'Pre-owned', meta: '2024 · 12,900 km · 1 owner', range: '390 km', k2: 'Battery', v2: '97%', charge: '130 kW', price: 29400, paint: '#9C7434', shape: hatch, alt: 'Bronze compact hatchback' }
+      { name: 'Tesla Cybertruck Cyberbeast', cond: 'New', meta: '2026 · 0 mi · Tri-Motor AWD', range: '320 mi', k2: 'Power', v2: '845 hp', charge: '250 kW', price: 99990, paint: '#3A3F47', shape: suv, alt: 'Stainless steel electric truck' },
+      { name: 'Tesla Cybertruck All-Wheel Drive', cond: 'New', meta: '2026 · 0 mi · Dual-Motor AWD', range: '325 mi', k2: 'Power', v2: '600 hp', charge: '250 kW', price: 84990, paint: '#4A505A', shape: suv, alt: 'Stainless steel dual-motor truck' },
+      { name: 'Tesla Model S Plaid', cond: 'New', meta: '2026 · 0 mi · Tri-Motor Plaid', range: '368 mi', k2: 'Power', v2: '1,020 hp', charge: '250 kW', price: 101540, paint: '#1B222B', shape: sedan, alt: 'Dark metallic Tesla Model S Plaid' },
+      { name: 'Tesla Model S Dual-Motor AWD', cond: 'Pre-owned', meta: '2026 · 14,200 mi · Pre-owned', range: '410 mi', k2: 'Power', v2: '670 hp', charge: '250 kW', price: 86630, paint: '#2C323B', shape: sedan, alt: 'Grey Tesla Model S saloon' },
+      { name: 'Tesla Model S Signature Edition', cond: 'Pre-owned', meta: '2026 · 1 of 250 Limited Edition', range: '368 mi', k2: 'Power', v2: '1,020 hp', charge: '250 kW', price: 159420, paint: '#5E1F26', shape: sedan, alt: 'Garnet Red Tesla Model S Signature' },
+      { name: 'Tesla Model X Plaid', cond: 'New', meta: '2026 · 0 mi · Tri-Motor AWD', range: '335 mi', k2: 'Power', v2: '1,020 hp', charge: '250 kW', price: 114990, paint: '#D9D6CF', shape: suv, alt: 'White Tesla Model X Plaid SUV' },
+      { name: 'Tesla Model X Dual-Motor AWD', cond: 'New', meta: '2026 · 0 mi · Falcon Doors', range: '352 mi', k2: 'Power', v2: '670 hp', charge: '250 kW', price: 99990, paint: '#C0C4CC', shape: suv, alt: 'White Tesla Model X SUV' },
+      { name: 'Tesla Roadster Performance', cond: 'New', meta: '2026 · Next Gen Supercar', range: '300+ mi', k2: 'Power', v2: '1,500 hp', charge: '350 kW', price: 200000, paint: '#E2E5EB', shape: hatch, alt: 'Pearl white Tesla Roadster supercar' }
     ];
     const list = s.cond === 'All' ? all : all.filter((c) => c.cond === s.cond);
     const cars = list.map((c) => ({
       ...c, body: c.shape.body, glass: c.shape.glass,
+      slug: c.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+      photoClass: 'ph-' + c.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
       price: fmt(c.price), monthly: fmt(pmt(c.price, 20, 48, 7.9)),
-      tagStyle: 'position: absolute; top: 14px; left: 14px; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; ' + (c.cond === 'New' ? 'background: ' + accent + '; color: #0B0C0E' : 'background: #0B0C0E; color: #F2F1EC; border: 1px solid #3A3F47')
+      tagStyle: 'position: absolute; top: 14px; left: 14px; z-index: 2; padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; ' + (c.cond === 'New' ? 'background: ' + accent + '; color: #0B0C0E' : 'background: #0B0C0E; color: #F2F1EC; border: 1px solid #3A3F47')
     }));
     const conds = ['All', 'New', 'Pre-owned'].map((label) => {
       const on = s.cond === label;
@@ -338,7 +406,7 @@ class Component extends DCLogic {
       ['What does the delivered price include?', 'The car, shipping to your door, first registration and number plates. Any import duty for your country is shown as its own line on the listing before you reserve.'],
       ['How do you check pre-owned cars?', 'Each car goes through a 160-point mechanical and electrical inspection, plus a battery state-of-health test under load. Both reports are attached to the listing.'],
       ['Can I see a car before I pay?', 'Yes. Book a showroom viewing and test drive, or ask for a live video walk-round of the exact car, including the underside and charging port.'],
-      ['How do fleet plans make money, and what are the risks?', 'Payouts come only from lease income on the cars you fund, after costs. Driver defaults, accidents, lower resale values or NeoDrive failing as a business could all reduce what you get back, including your original money.'],
+      ['How do fleet plans make money, and what are the risks?', 'Payouts come only from lease income on the cars you fund, after costs. Driver defaults, accidents, lower resale values or Vision Enterprise failing as a business could all reduce what you get back, including your original money.'],
       ['How do refunds and withdrawals work?', 'Refunds go back to the account you paid from within 10 working days. There are no release fees, tax "unlock" charges or upgrade payments, ever.']
     ];
     const faqs = qa.map(([q, a], i) => {
@@ -346,8 +414,22 @@ class Component extends DCLogic {
       return { q, a, open, sign: open ? '−' : '+', toggle: () => this.setState({ open: open ? -1 : i }) };
     });
 
+    const gold = accent, teal = '#8FD3C7', grey = '#8D9199';
+    const news = [
+      { tag: 'New in', color: gold, text: 'Tesla Cybertruck Cyberbeast · ' + fmt(99990) },
+      { tag: 'Limited edition', color: gold, text: 'Model S Signature Edition · 1 of 250 units' },
+      { tag: 'Next-Gen', color: teal, text: 'Tesla Roadster Performance · 0–60 in <1.0s' },
+      { tag: 'Pre-owned', color: grey, text: 'Tesla Model S Dual-Motor AWD · 410 mi range' },
+      { tag: 'New in', color: gold, text: 'Tesla Model X Plaid · 1,020 hp · ' + fmt(114990) },
+      { tag: 'Finance', color: teal, text: 'Fixed monthly payments from 7.9% APR (example)' }
+    ];
+    const tick = news.map((n) => ({ ...n, hidden: 'false' })).concat(news.map((n) => ({ ...n, hidden: 'true' })));
+
     return {
-      accent, cars, conds, sliders, company, faqs,
+      accent, cars, conds, sliders, company, faqs, tick,
+      menuOpen: !!s.menu, menuLabel: s.menu ? 'Close menu' : 'Open menu',
+      menuIcon: s.menu ? 'M6 6l12 12M18 6L6 18' : 'M4 7h16M4 12h16M4 17h16',
+      toggleMenu: () => this.setState({ menu: !s.menu }), closeMenu: () => this.setState({ menu: false }),
       countLabel: cars.length + (cars.length === 1 ? ' car' : ' cars'),
       heroPrice: fmt(68900), heroMonthly: fmt(pmt(68900, 20, 48, 7.9)),
       monthly: fmt(pay), interest: fmt(totalPay - s.price), total: fmt(totalPay)
@@ -355,5 +437,69 @@ class Component extends DCLogic {
   }
 }
 </script>
+<template data-slot="market-tape">
+<div class="tradingview-widget-container">
+<div class="tradingview-widget-container__widget"></div>
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+{
+ "symbols": [
+  {
+   "proName": "NASDAQ:TSLA",
+   "title": "Tesla"
+  },
+  {
+   "proName": "NASDAQ:RIVN",
+   "title": "Rivian"
+  },
+  {
+   "proName": "NASDAQ:LCID",
+   "title": "Lucid"
+  },
+  {
+   "proName": "NYSE:NIO",
+   "title": "NIO"
+  },
+  {
+   "proName": "NYSE:XPEV",
+   "title": "XPeng"
+  },
+  {
+   "proName": "NASDAQ:LI",
+   "title": "Li Auto"
+  },
+  {
+   "proName": "NYSE:GM",
+   "title": "General Motors"
+  },
+  {
+   "proName": "NYSE:F",
+   "title": "Ford"
+  },
+  {
+   "proName": "NYSE:TM",
+   "title": "Toyota"
+  },
+  {
+   "proName": "NYSE:ALB",
+   "title": "Albemarle (lithium)"
+  },
+  {
+   "proName": "FOREXCOM:SPXUSD",
+   "title": "S&P 500"
+  },
+  {
+   "proName": "TVC:UKOIL",
+   "title": "Brent crude"
+  }
+ ],
+ "showSymbolLogo": true,
+ "isTransparent": true,
+ "displayMode": "adaptive",
+ "colorTheme": "dark",
+ "locale": "en"
+}
+</script>
+</div>
+</template>
 </body>
 </html>
