@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Vantor Eon GT — NeoDrive</title>
+<title>Vantor Eon GT — Vision Enterprise</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NeoDrive: new and pre-owned electric cars with clear delivered prices and transparent financing.">
+<meta name="description" content="Vision Enterprise: new and pre-owned electric cars with clear delivered prices and transparent financing.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>x-dc{display:none}</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
 <script src="assets/dc-lite.js" defer></script>
 </head>
 <body>
@@ -17,6 +20,17 @@
 <style>
 body{margin:0;background:#0B0C0E}
 a{color:#F2F1EC}a:hover{color:#E2C48A}
+.nd-photo{position:absolute;inset:0;z-index:1;background-size:cover;background-position:center;background-repeat:no-repeat}
+.nd-slot-label{position:absolute;left:14px;bottom:12px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8D9199;background:rgba(11,12,14,.75);padding:4px 8px;border-radius:6px}
+.ph-vantor-eon-gt{background-image:url(assets/cars/vantor-eon-gt.jpg)}
+@media (max-width: 760px){
+nav[aria-label="Breadcrumb"]{display:none !important}
+[style*="padding: 40px 24px 64px"]{padding:20px 16px 48px !important;gap:28px !important}
+[style*="padding: 40px 16px 24px"]{padding:20px 6px 10px !important}
+[style*="padding: 72px 24px"]{padding:48px 16px !important}
+[style*="padding: 28px; display: flex; flex-direction: column; gap: 16px"]{padding:20px !important}
+[style*="padding: 24px; display: flex; flex-direction: column; gap: 18px"]{padding:20px !important}
+}
 </style>
 </helmet>
 <div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #F2F1EC; background: #0B0C0E; min-height: 100vh">
@@ -27,20 +41,21 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
 <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">Vision Enterprise</span>
 </a>
 <nav aria-label="Breadcrumb" style="font-size: 14px; color: #8D9199; display: flex; gap: 8px; flex-wrap: wrap">
 <a href="index.html" style="text-decoration: none; color: #B7BAC0; padding: 10px 0">Home</a><span aria-hidden="true" style="padding: 10px 0">/</span>
 <a href="index.html" style="text-decoration: none; color: #B7BAC0; padding: 10px 0">New cars</a><span aria-hidden="true" style="padding: 10px 0">/</span>
 <span style="padding: 10px 0; color: #F2F1EC">Vantor Eon GT</span>
 </nav>
+<a href="account.html?next=trade" data-trade-link style="font-size: 14px; font-weight: 600; text-decoration: none; padding: 10px 0">Trade</a>
 </div>
 </header>
 
 <section style="max-width: 1280px; margin: 0 auto; padding: 40px 24px 64px; display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start">
 
 <div style="flex: 1 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<div style="border-radius: 24px; overflow: hidden; border: 1px solid #22252B; background: radial-gradient(120% 90% at 50% 100%, #2A2D33 0%, #15171B 45%, #0E0F12 100%); padding: 40px 16px 24px">
+<div style="position: relative; aspect-ratio: 16 / 10; display: flex; align-items: center; box-sizing: border-box; border-radius: 24px; overflow: hidden; border: 1px solid #22252B; background: radial-gradient(120% 90% at 50% 100%, #2A2D33 0%, #15171B 45%, #0E0F12 100%); padding: 40px 16px 24px">
 <svg viewBox="0 0 1000 330" role="img" aria-label="{{paintAlt}}" style="display: block; width: 100%; height: auto">
 <defs><radialGradient id="carShadow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#000" stop-opacity="0.75"></stop><stop offset="1" stop-color="#000" stop-opacity="0"></stop></radialGradient></defs>
 <ellipse cx="510" cy="292" rx="470" ry="26" fill="url(#carShadow)"></ellipse>
@@ -56,6 +71,8 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 <g stroke="#9AA0A8" stroke-width="5" stroke-linecap="round"><path d="M236 226v72M200 262h72M211 237l50 50M261 237l-50 50"></path><path d="M796 226v72M760 262h72M771 237l50 50M821 237l-50 50"></path></g>
 <circle cx="236" cy="262" r="10" fill="#D6B370"></circle><circle cx="796" cy="262" r="10" fill="#D6B370"></circle>
 </svg>
+<span class="nd-slot-label">Photo slot · 1600 × 1000 · assets/cars/vantor-eon-gt.jpg</span>
+<div class="nd-photo ph-vantor-eon-gt" role="img" aria-label="Vantor Eon GT photo"></div>
 </div>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <div role="radiogroup" aria-label="Paint" style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center">
@@ -64,7 +81,7 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 </sc-for>
 <span style="font-size: 14px; color: #B7BAC0; margin-left: 6px">{{paintName}}</span>
 </div>
-<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8D9199">[Replace with your 8-angle photo set]</span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8D9199">Paint picker recolours the drawing</span>
 </div>
 </div>
 
@@ -143,8 +160,8 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 
 <footer style="border-top: 1px solid #22252B">
 <div style="max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; font-size: 14px; color: #8D9199">
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">NeoDrive</span>
-<span>NeoDrive is a trading name of [REGISTERED COMPANY NAME].</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">Vision Enterprise</span>
+<span>Vision Enterprise is a trading name of [REGISTERED COMPANY NAME].</span>
 </div>
 </footer>
 

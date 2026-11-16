@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>NeoDrive — Your account</title>
+<title>Vision Enterprise — Your account</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NeoDrive: new and pre-owned electric cars with clear delivered prices and transparent financing.">
+<meta name="description" content="Vision Enterprise: new and pre-owned electric cars with clear delivered prices and transparent financing.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>x-dc{display:none}</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
 <script src="assets/dc-lite.js" defer></script>
 </head>
 <body>
@@ -17,18 +20,29 @@
 <style>
 body{margin:0;background:#0B0C0E}
 a{color:#F2F1EC}a:hover{color:#E2C48A}
+@media (max-width: 760px){
+[style*="min-height: 900px"]{min-height:0 !important}
+[style*="padding: 40px; box-sizing"]{padding:24px 20px !important;gap:24px !important}
+[style*="padding: 40px 24px; box-sizing"]{padding:32px 20px 48px !important}
+[style*="padding: 32px 24px 64px"]{padding:16px 16px 48px !important;gap:20px !important}
+nav[aria-label="Account"]{flex:1 1 100% !important;flex-direction:row !important;overflow-x:auto;gap:6px !important;padding-bottom:4px}
+nav[aria-label="Account"] > button{flex:none;white-space:nowrap;border:1px solid #262A30 !important;border-radius:999px !important}
+nav[aria-label="Account"] > div{display:none !important}
+[style*="padding: 24px; display: flex; flex-direction: column"]{padding:20px !important}
+a[href="index.html"][style*="font-size: 14px; color: #B7BAC0"]{display:none}
+}
 </style>
 </helmet>
 <div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #F2F1EC; background: #0B0C0E; min-height: 100vh">
 
-<div style="background: #15171B; border-bottom: 1px solid #22252B; text-align: center; padding: 9px 16px; font-size: 13px; color: #B7BAC0">Preview build · demo account with sample data</div>
+<div style="background: #15171B; border-bottom: 1px solid #22252B; text-align: center; padding: 9px 16px; font-size: 13px; color: #B7BAC0">Preview build · order, finance and document details below are sample data</div>
 
 <sc-if value="{{isSignIn}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; flex-wrap: wrap; min-height: 900px">
 <div style="flex: 1 1 520px; min-width: 0; background: radial-gradient(120% 90% at 50% 100%, #2A2D33 0%, #15171B 45%, #0E0F12 100%); border-right: 1px solid #22252B; padding: 40px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; gap: 40px">
 <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
 <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">Vision Enterprise</span>
 </a>
 <svg viewBox="0 0 1000 330" aria-hidden="true" style="display: block; width: 100%; height: auto">
 <ellipse cx="510" cy="292" rx="460" ry="22" fill="#000" fill-opacity="0.5"></ellipse>
@@ -47,28 +61,64 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 </div>
 
 <div style="flex: 1 1 460px; min-width: 0; padding: 40px 24px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">
+<sc-if value="{{isLoading}}" hint-placeholder-val="{{ false }}">
+<p style="color: #B7BAC0">Checking your session…</p>
+</sc-if>
 <sc-if value="{{isPassword}}" hint-placeholder-val="{{ true }}">
-<form aria-label="Sign in" style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<form aria-label="Sign in" data-nd-form style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
 <h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Sign in</h2>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Email<input type="email" autocomplete="email" value="ada.okafor@example.com" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Password<input type="password" autocomplete="current-password" value="demo-password" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
-<a href="#reset" style="align-self: flex-end; font-size: 14px; color: #D6B370; padding: 6px 0">Forgot password?</a>
-<button type="button" onClick="{{toCode}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Continue</button>
-<p style="margin: 0; font-size: 14px; color: #B7BAC0; text-align: center">New here? <a href="#register" style="color: #F2F1EC; font-weight: 600">Create an account</a></p>
+<sc-if value="{{toTradeNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; color: #B7BAC0; line-height: 1.55">Sign in to continue to <strong style="color: #F2F1EC">Vision Trade</strong>. One account works for both.</p></sc-if>
+<sc-if value="{{error}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #2A1414; border: 1px solid #5F1D1D; color: #F5B4B4; font-size: 14px">{{error}}</p></sc-if>
+<sc-if value="{{info}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #0F1A18; border: 1px solid #2E5A52; color: #CBEDE6; font-size: 14px">{{info}}</p></sc-if>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Email<input type="email" autocomplete="email" required value="{{email}}" onChange="{{setEmail}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Password<input type="password" autocomplete="current-password" required value="{{password}}" onChange="{{setPassword}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<button type="button" onClick="{{toForgot}}" style="align-self: flex-end; background: none; border: 0; padding: 6px 0; font: inherit; font-size: 14px; color: #D6B370; cursor: pointer">Forgot password?</button>
+<button type="submit" disabled="{{busy}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">{{signInLabel}}</button>
+<p style="margin: 0; font-size: 14px; color: #B7BAC0; text-align: center">New here? <button type="button" onClick="{{toRegister}}" style="background: none; border: 0; padding: 6px 0; font: inherit; font-size: 14px; color: #D6B370; cursor: pointer; color: #F2F1EC; font-weight: 600; padding: 0">Create an account</button></p>
+<sc-if value="{{demoMode}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: 13px; color: #8D9199; text-align: center">Demo mode: add your Supabase keys to assets/config.js to turn on real accounts.</p></sc-if>
 <div style="display: flex; gap: 12px; padding: 14px 16px; border: 1px solid #262A30; border-radius: 12px; background: #111316">
 <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#8FD3C7" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="flex: none; margin-top: 1px"><rect x="5" y="11" width="14" height="10" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
-<span style="font-size: 13px; color: #B7BAC0; line-height: 1.5">We will never ask for your password or sign-in code by phone, text or email.</span>
+<span style="font-size: 13px; color: #B7BAC0; line-height: 1.5">We will never ask for your password by phone, text or email.</span>
 </div>
 </form>
 </sc-if>
-<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}">
-<form aria-label="Verify sign-in" style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
-<button type="button" onClick="{{toPassword}}" style="align-self: flex-start; min-height: 44px; background: none; border: 0; color: #B7BAC0; font: inherit; font-size: 14px; cursor: pointer; padding: 0">← Back</button>
-<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Check your phone</h2>
-<p style="margin: 0; color: #B7BAC0; line-height: 1.55">Enter the 6-digit code we sent to the number ending 4471.</p>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Sign-in code<input type="text" inputmode="numeric" autocomplete="one-time-code" value="482 913" style="min-height: 56px; padding: 0 16px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font-family: 'JetBrains Mono', monospace; font-size: 22px; letter-spacing: 0.3em"></label>
-<button type="button" onClick="{{toDash}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Sign in</button>
-<a href="#resend" style="align-self: center; font-size: 14px; color: #D6B370; padding: 6px 0">Send a new code</a>
+<sc-if value="{{isRegister}}" hint-placeholder-val="{{ false }}">
+<form aria-label="Create account" data-nd-form style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<button type="button" onClick="{{toPassword}}" style="align-self: flex-start; min-height: 44px; background: none; border: 0; color: #B7BAC0; font: inherit; font-size: 14px; cursor: pointer; padding: 0">← Back to sign in</button>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Create your account</h2>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.55">One account for buying cars and for Vision Trade.</p>
+<sc-if value="{{error}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #2A1414; border: 1px solid #5F1D1D; color: #F5B4B4; font-size: 14px">{{error}}</p></sc-if>
+<sc-if value="{{info}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #0F1A18; border: 1px solid #2E5A52; color: #CBEDE6; font-size: 14px">{{info}}</p></sc-if>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Full name<input type="text" autocomplete="name" required maxlength="80" value="{{name}}" onChange="{{setName}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Email<input type="email" autocomplete="email" required value="{{email}}" onChange="{{setEmail}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Password (at least 8 characters)<input type="password" autocomplete="new-password" required minlength="8" value="{{password}}" onChange="{{setPassword}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<button type="submit" disabled="{{busy}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Create account</button>
+</form>
+</sc-if>
+<sc-if value="{{isCheckEmail}}" hint-placeholder-val="{{ false }}">
+<div style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Check your email</h2>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.55">We sent a link to <strong style="color: #F2F1EC">{{email}}</strong>. Open it to confirm your account{{checkEmailSuffix}}.</p>
+<button type="button" onClick="{{toPassword}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Back to sign in</button>
+</div>
+</sc-if>
+<sc-if value="{{isForgot}}" hint-placeholder-val="{{ false }}">
+<form aria-label="Reset password" data-nd-form style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<button type="button" onClick="{{toPassword}}" style="align-self: flex-start; min-height: 44px; background: none; border: 0; color: #B7BAC0; font: inherit; font-size: 14px; cursor: pointer; padding: 0">← Back to sign in</button>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Reset your password</h2>
+<sc-if value="{{error}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #2A1414; border: 1px solid #5F1D1D; color: #F5B4B4; font-size: 14px">{{error}}</p></sc-if>
+<sc-if value="{{info}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #0F1A18; border: 1px solid #2E5A52; color: #CBEDE6; font-size: 14px">{{info}}</p></sc-if>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">Email<input type="email" autocomplete="email" required value="{{email}}" onChange="{{setEmail}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<button type="submit" disabled="{{busy}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Send reset link</button>
+</form>
+</sc-if>
+<sc-if value="{{isNewPass}}" hint-placeholder-val="{{ false }}">
+<form aria-label="Choose a new password" data-nd-form style="width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 28px">Choose a new password</h2>
+<sc-if value="{{error}}" hint-placeholder-val="{{ false }}"><p role="alert" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #2A1414; border: 1px solid #5F1D1D; color: #F5B4B4; font-size: 14px">{{error}}</p></sc-if>
+<sc-if value="{{info}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; padding: 12px 14px; border-radius: 12px; background: #0F1A18; border: 1px solid #2E5A52; color: #CBEDE6; font-size: 14px">{{info}}</p></sc-if>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 14px; color: #B7BAC0">New password (at least 8 characters)<input type="password" autocomplete="new-password" required minlength="8" value="{{password}}" onChange="{{setPassword}}" style="min-height: 50px; padding: 0 14px; border-radius: 12px; border: 1px solid #3A3F47; background: #15171B; color: #F2F1EC; font: inherit"></label>
+<button type="submit" disabled="{{busy}}" style="min-height: 52px; border: 0; border-radius: 999px; background: #D6B370; color: #0B0C0E; font: inherit; font-weight: 600; cursor: pointer">Save password</button>
 </form>
 </sc-if>
 </div>
@@ -80,11 +130,12 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 <div style="max-width: 1360px; margin: 0 auto; padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
 <svg width="28" height="28" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase">Vision Enterprise</span>
 </a>
 <div style="display: flex; align-items: center; gap: 14px">
 <a href="index.html" style="font-size: 14px; color: #B7BAC0; padding: 10px 0">Browse cars</a>
-<span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 999px; background: #262A30; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">AO</span>
+<a href="account.html?next=trade" data-trade-link style="font-size: 14px; color: #D6B370; font-weight: 600; padding: 10px 0">Trade</a>
+<span aria-hidden="true" title="{{displayName}}" style="width: 40px; height: 40px; border-radius: 999px; background: #262A30; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px">{{initials}}</span>
 <button type="button" onClick="{{signOut}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #3A3F47; border-radius: 999px; background: none; color: #F2F1EC; font: inherit; font-size: 14px; cursor: pointer">Sign out</button>
 </div>
 </div>
@@ -107,9 +158,18 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 <sc-if value="{{tabOverview}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; flex-direction: column; gap: 24px">
 <div style="display: flex; flex-direction: column; gap: 4px">
-<span style="font-size: 14px; color: #8D9199">Good morning,</span>
-<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3vw, 36px); text-transform: uppercase">Ada Okafor</h1>
+<span style="font-size: 14px; color: #8D9199">{{greeting}},</span>
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(26px, 3vw, 36px); text-transform: uppercase">{{displayName}}</h1>
 </div>
+
+<section aria-label="Vision Trade" style="background: linear-gradient(135deg, #1C1A14 0%, #15171B 60%); border: 1px solid #3A3322; border-radius: 20px; padding: 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 6px; max-width: 560px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #D6B370; letter-spacing: 0.1em; text-transform: uppercase">Vision Trade</span>
+<h2 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 600; font-size: 22px">Trade crypto, forex, stocks and commodities</h2>
+<p style="margin: 0; color: #B7BAC0; font-size: 14px; line-height: 1.55">Uses the same account. Currently in demo mode with simulated funds and prices.</p>
+</div>
+<a href="account.html?next=trade" data-trade-link style="text-decoration: none; padding: 14px 22px; background: #D6B370; color: #0B0C0E; border-radius: 999px; font-weight: 600; font-size: 15px">Open Vision Trade</a>
+</section>
 
 <section aria-label="Your order" style="background: #15171B; border: 1px solid #262A30; border-radius: 20px; padding: 24px; display: flex; flex-direction: column; gap: 22px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; align-items: flex-start">
@@ -237,10 +297,88 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { screen: 'password', tab: 'overview', done: { 0: true } };
+    const q = new URLSearchParams(location.search);
+    this.next = q.get('next') === 'trade' ? 'trade' : '';
+    const auth = window.NeoAuth || { enabled: false };
+    this.auth = auth;
+    this.state = {
+      screen: auth.enabled ? 'loading' : (q.get('mode') === 'register' ? 'register' : 'password'),
+      tab: 'overview', done: { 0: true },
+      name: '', email: '', password: '', error: '', info: '', busy: false, user: null
+    };
+    if (q.get('mode') === 'register') this.startMode = 'register';
   }
+
+  async componentDidMount() {
+    document.addEventListener('submit', (e) => {
+      if (!e.target.closest('[data-nd-form]')) return;
+      e.preventDefault();
+      this.submit();
+    });
+    if (!this.auth.enabled) return;
+    this.auth.client.auth.onAuthStateChange((event) => {
+      if (event === 'PASSWORD_RECOVERY') this.setState({ screen: 'newpass', password: '', error: '', info: '' });
+    });
+    if (new URLSearchParams(location.search).get('mode') === 'reset' || /type=recovery/.test(location.hash)) {
+      this.setState({ screen: 'newpass' });
+      return;
+    }
+    const user = await this.auth.getUser().catch(() => null);
+    if (user) return this.afterSignIn(user);
+    this.setState({ screen: this.startMode || 'password' });
+  }
+
+  async afterSignIn(user) {
+    if (this.next === 'trade') {
+      this.setState({ screen: 'loading', info: '' });
+      return this.auth.goToTrade();
+    }
+    this.setState({ screen: 'dash', tab: 'overview', user, password: '', error: '', info: '' });
+  }
+
+  async submit() {
+    const s = this.state;
+    if (s.busy) return;
+    // Demo mode (no Supabase keys yet): keep the original preview behaviour.
+    if (!this.auth.enabled) {
+      if (this.next === 'trade') return this.auth.goToTrade ? this.auth.goToTrade() : null;
+      return this.setState({ screen: 'dash', tab: 'overview', user: { name: 'Ada Okafor', email: s.email } });
+    }
+    this.setState({ busy: true, error: '', info: '' });
+    try {
+      if (s.screen === 'password') {
+        await this.auth.signIn(s.email.trim(), s.password);
+        return this.afterSignIn(await this.auth.getUser());
+      }
+      if (s.screen === 'register') {
+        if (s.password.length < 8) throw new Error('Password must be at least 8 characters.');
+        const r = await this.auth.signUp(s.name.trim(), s.email.trim(), s.password, this.next);
+        if (r.needsConfirmation) return this.setState({ screen: 'checkEmail', password: '' });
+        return this.afterSignIn(await this.auth.getUser());
+      }
+      if (s.screen === 'forgot') {
+        await this.auth.resetPassword(s.email.trim());
+        return this.setState({ info: 'If an account exists for that email, a reset link is on its way.' });
+      }
+      if (s.screen === 'newpass') {
+        if (s.password.length < 8) throw new Error('Password must be at least 8 characters.');
+        await this.auth.updatePassword(s.password);
+        history.replaceState(null, '', 'account.html');
+        return this.afterSignIn(await this.auth.getUser());
+      }
+    } catch (err) {
+      this.setState({ error: this.auth.friendly ? this.auth.friendly(err) : err.message });
+    } finally {
+      this.setState({ busy: false });
+    }
+  }
+
   renderVals() {
     const s = this.state;
+    const displayName = (s.user && s.user.name) || 'Ada Okafor';
+    const initials = displayName.split(/\s+/).filter(Boolean).slice(0, 2).map((w) => w[0].toUpperCase()).join('');
+    const hour = new Date().getHours();
+    const greeting = hour < 12 ? 'Good morning' : hour < 17 ? 'Good afternoon' : 'Good evening';
     const tabs = [['overview', 'Overview'], ['finance', 'Finance'], ['docs', 'Documents'], ['saved', 'Saved cars']];
     const nav = tabs.map(([id, label]) => {
       const on = s.tab === id;
@@ -292,9 +430,21 @@ class Component extends DCLogic {
     ];
 
     return {
-      isSignIn: s.screen !== 'dash', isPassword: s.screen === 'password', isCode: s.screen === 'code', isDash: s.screen === 'dash',
-      toCode: () => this.setState({ screen: 'code' }), toPassword: () => this.setState({ screen: 'password' }),
-      toDash: () => this.setState({ screen: 'dash', tab: 'overview' }), signOut: () => this.setState({ screen: 'password' }),
+      isSignIn: s.screen !== 'dash', isLoading: s.screen === 'loading', isPassword: s.screen === 'password',
+      isRegister: s.screen === 'register', isCheckEmail: s.screen === 'checkEmail', isForgot: s.screen === 'forgot', isNewPass: s.screen === 'newpass',
+      isDash: s.screen === 'dash',
+      name: s.name, email: s.email, password: s.password, error: s.error, info: s.info, busy: s.busy,
+      demoMode: !this.auth.enabled, toTradeNote: this.next === 'trade',
+      signInLabel: s.busy ? 'Signing in…' : 'Sign in',
+      checkEmailSuffix: this.next === 'trade' ? ', then you will go straight to Vision Trade' : '',
+      setName: (e) => this.setState({ name: e.target.value }),
+      setEmail: (e) => this.setState({ email: e.target.value }),
+      setPassword: (e) => this.setState({ password: e.target.value }),
+      toPassword: () => this.setState({ screen: 'password', error: '', info: '', password: '' }),
+      toRegister: () => this.setState({ screen: 'register', error: '', info: '', password: '' }),
+      toForgot: () => this.setState({ screen: 'forgot', error: '', info: '' }),
+      signOut: async () => { await this.auth.signOut?.(); this.setState({ screen: 'password', user: null, email: '', password: '' }); },
+      displayName, initials, greeting,
       goFinance: () => this.setState({ tab: 'finance' }),
       nav, steps, todos, agreement, schedule, docs, saved,
       tabOverview: s.tab === 'overview', tabFinance: s.tab === 'finance', tabDocs: s.tab === 'docs', tabSaved: s.tab === 'saved'

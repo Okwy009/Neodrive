@@ -7,6 +7,9 @@
 <meta name="description" content="Vision Enterprise: new and pre-owned electric cars with clear delivered prices and transparent financing.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>x-dc{display:none}</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
 <script src="assets/dc-lite.js" defer></script>
 </head>
 <body>
@@ -64,6 +67,7 @@ input[type=range]{accent-color:#D6B370}
 <a href="plans.html" style="text-decoration: none; padding: 12px 0">Fleet plans</a>
 <a href="#company" style="text-decoration: none; padding: 12px 0">Company</a>
 <a href="#faq" style="text-decoration: none; padding: 12px 0">FAQ</a>
+<a href="account.html?next=trade" data-trade-link style="text-decoration: none; padding: 12px 0; color: {{accent}}">Trade</a>
 </nav>
 <div class="nd-desktop" style="display: flex; gap: 8px">
 <a href="account.html" style="text-decoration: none; padding: 12px 18px; font-weight: 600; font-size: 15px">Sign in</a>
@@ -78,6 +82,7 @@ input[type=range]{accent-color:#D6B370}
 <a href="plans.html" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">Fleet plans</a>
 <a href="#company" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">Company</a>
 <a href="#faq" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24">FAQ</a>
+<a href="account.html?next=trade" data-trade-link onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500; border-bottom: 1px solid #1C1F24; color: {{accent}}">Trade</a>
 <a href="account.html" onClick="{{closeMenu}}" style="text-decoration: none; padding: 15px 0; font-size: 17px; font-weight: 500">Sign in</a>
 <a href="#cars" onClick="{{closeMenu}}" style="margin-top: 12px; text-align: center; text-decoration: none; padding: 15px 20px; background: {{accent}}; color: #0B0C0E; border-radius: 999px; font-weight: 600">Browse cars</a>
 </nav>

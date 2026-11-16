@@ -1,5 +1,5 @@
 /*
- * dc-lite.js — a tiny renderer for NeoDrive's page templates.
+ * dc-lite.js — a tiny renderer for Vision Enterprise's page templates.
  *
  * Each page keeps its markup inside <x-dc> and its logic in a
  * <script type="text/x-dc" data-dc-script> block (class Component extends DCLogic).
@@ -172,7 +172,29 @@
         if (a.value !== b.getAttribute('value')) a.value = b.getAttribute('value');
       }
     }
+    if (a.hasAttribute('data-dc-slot')) return; // filled once from a <template>; leave its content alone
     morphChildren(a, b);
+  }
+
+  /* ---- slots: <div data-dc-slot="name"> is filled once from <template data-slot="name"> ---- */
+  function fillSlots() {
+    var slots = app.root.querySelectorAll('[data-dc-slot]');
+    for (var i = 0; i < slots.length; i++) {
+      var slot = slots[i];
+      var tpl = document.querySelector('template[data-slot="' + slot.getAttribute('data-dc-slot') + '"]');
+      if (!tpl) continue;
+      var frag = document.importNode(tpl.content, true);
+      // Recreate scripts so the browser runs them (cloned template scripts may not execute).
+      var scripts = frag.querySelectorAll('script');
+      for (var s = 0; s < scripts.length; s++) {
+        var old = scripts[s], fresh = document.createElement('script');
+        for (var k = 0; k < old.attributes.length; k++) fresh.setAttribute(old.attributes[k].name, old.attributes[k].value);
+        fresh.text = old.text;
+        old.parentNode.replaceChild(fresh, old);
+      }
+      slot.textContent = '';
+      slot.appendChild(frag);
+    }
   }
 
   function dispatch(e) {
@@ -190,6 +212,7 @@
     if (!app.mounted) {
       while (frag.firstChild) app.root.appendChild(frag.firstChild);
       app.mounted = true;
+      fillSlots();
     } else {
       morphChildren(app.root, frag);
     }
