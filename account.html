@@ -44,6 +44,31 @@ a[href="index.html"][style*="font-size: 14px; color: #B7BAC0"]{display:none}
 <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
 <span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">Vision Enterprise</span>
 </a>
+<sc-if value="{{toTradeNote}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 22px; width: 100%">
+<div style="border: 1px solid #1F3A40; border-radius: 20px; background: linear-gradient(180deg, #0F1A1D 0%, #0E0F12 100%); padding: 22px 22px 14px; box-shadow: 0 30px 80px -40px rgba(20,184,166,0.45)">
+<div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.12em; color: #14B8A6; text-transform: uppercase">Vision Trade</span>
+<span style="display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: #22C55E; border: 1px solid #14532D; border-radius: 999px; padding: 3px 10px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #22C55E"></span>Live market data</span>
+</div>
+<div data-dc-slot="trade-chart" style="height: 340px; margin: 0 -8px"></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 6px 12px; border: 1px solid #1F3A40; border-radius: 999px; background: rgba(20,184,166,0.08); color: #CBEDE6; font-size: 13px">Crypto</span><span style="padding: 6px 12px; border: 1px solid #1F3A40; border-radius: 999px; background: rgba(20,184,166,0.08); color: #CBEDE6; font-size: 13px">Forex</span><span style="padding: 6px 12px; border: 1px solid #1F3A40; border-radius: 999px; background: rgba(20,184,166,0.08); color: #CBEDE6; font-size: 13px">Stocks</span><span style="padding: 6px 12px; border: 1px solid #1F3A40; border-radius: 999px; background: rgba(20,184,166,0.08); color: #CBEDE6; font-size: 13px">Commodities</span></div>
+</div>
+</sc-if>
+<sc-if value="{{toTradeNote}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px; max-width: 480px">
+<h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(28px, 3.5vw, 42px); line-height: 1.05; text-transform: uppercase">Trade global markets <span style="color: #14B8A6">from one account.</span></h1>
+<p style="margin: 0; color: #B7BAC0; line-height: 1.6">Crypto, forex, stocks and commodities with live prices, orders from $1, and the full cost shown before you confirm.</p>
+<ul style="list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; color: #D4D6DA; font-size: 15px">
+<li style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#14B8A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M20 6 9 17l-5-5"></path></svg>Practise with demo funds first</li>
+<li style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#14B8A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M20 6 9 17l-5-5"></path></svg>One account for cars and trading</li>
+<li style="display: flex; gap: 10px; align-items: center"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#14B8A6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex: none"><path d="M20 6 9 17l-5-5"></path></svg>Withdrawals reviewed by our team</li>
+</ul>
+<p style="margin: 6px 0 0; color: #8D9199; font-size: 12px; line-height: 1.5">Demo mode: simulated funds and prices. Trading involves risk, and the value of investments can go down as well as up.</p>
+</div>
+</sc-if>
+<sc-if value="{{notTrade}}" hint-placeholder-val="{{ true }}">
 <svg viewBox="0 0 1000 330" aria-hidden="true" style="display: block; width: 100%; height: auto">
 <ellipse cx="510" cy="292" rx="460" ry="22" fill="#000" fill-opacity="0.5"></ellipse>
 <path d="M60 262 C56 230 76 208 134 198 L306 176 C368 122 440 94 532 92 L652 94 C724 98 794 138 856 176 L916 188 C950 196 962 218 962 246 L962 262 Z" fill="#2B3440"></path>
@@ -58,6 +83,7 @@ a[href="index.html"][style*="font-size: 14px; color: #B7BAC0"]{display:none}
 <h1 style="margin: 0; font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: clamp(28px, 3.5vw, 42px); line-height: 1.05; text-transform: uppercase">Your car, your agreement, one place.</h1>
 <p style="margin: 0; color: #B7BAC0; line-height: 1.6">Track delivery, see every payment and download your documents.</p>
 </div>
+</sc-if>
 </div>
 
 <div style="flex: 1 1 460px; min-width: 0; padding: 40px 24px; box-sizing: border-box; display: flex; align-items: center; justify-content: center">
@@ -293,6 +319,52 @@ a[href="index.html"][style*="font-size: 14px; color: #B7BAC0"]{display:none}
 
 </div>
 </x-dc>
+<template data-slot="trade-chart">
+<!-- TradingView Widget BEGIN: real market prices. Keep the copyright link (required by TradingView's terms). -->
+<div class="tradingview-widget-container" style="height: 100%; width: 100%">
+<div class="tradingview-widget-container__widget" style="height: calc(100% - 28px); width: 100%"></div>
+<div class="tradingview-widget-copyright" style="font-size: 11px; color: #6B7079; padding: 6px 8px 0">Market data by <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank" style="color: #8FD3C7">TradingView</a></div>
+<script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-symbol-overview.js" async>
+{
+  "symbols": [
+    ["Bitcoin", "BITSTAMP:BTCUSD|1D"],
+    ["Ethereum", "BITSTAMP:ETHUSD|1D"],
+    ["EUR/USD", "FX:EURUSD|1D"],
+    ["Gold", "OANDA:XAUUSD|1D"],
+    ["Apple", "NASDAQ:AAPL|1D"]
+  ],
+  "chartOnly": false,
+  "width": "100%",
+  "height": "100%",
+  "autosize": true,
+  "locale": "en",
+  "colorTheme": "dark",
+  "isTransparent": true,
+  "showVolume": false,
+  "showMA": false,
+  "hideDateRanges": false,
+  "hideMarketStatus": false,
+  "hideSymbolLogo": false,
+  "scalePosition": "right",
+  "scaleMode": "Normal",
+  "fontFamily": "-apple-system, BlinkMacSystemFont, Trebuchet MS, Roboto, Ubuntu, sans-serif",
+  "fontSize": "10",
+  "noTimeScale": false,
+  "valuesTracking": "1",
+  "changeMode": "price-and-percent",
+  "chartType": "area",
+  "lineWidth": 2,
+  "lineType": 0,
+  "lineColor": "rgba(20, 184, 166, 1)",
+  "topColor": "rgba(20, 184, 166, 0.35)",
+  "bottomColor": "rgba(20, 184, 166, 0)",
+  "dateRanges": ["1d|1", "1m|30", "3m|60", "12m|1D", "60m|1W", "all|1M"]
+}
+</script>
+</div>
+<!-- TradingView Widget END -->
+</template>
+
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
 class Component extends DCLogic {
   constructor(props) {
@@ -310,6 +382,7 @@ class Component extends DCLogic {
   }
 
   async componentDidMount() {
+    if (this.next === 'trade') document.title = 'Sign in to Vision Trade — Vision Enterprise';
     document.addEventListener('submit', (e) => {
       if (!e.target.closest('[data-nd-form]')) return;
       e.preventDefault();
@@ -434,7 +507,7 @@ class Component extends DCLogic {
       isRegister: s.screen === 'register', isCheckEmail: s.screen === 'checkEmail', isForgot: s.screen === 'forgot', isNewPass: s.screen === 'newpass',
       isDash: s.screen === 'dash',
       name: s.name, email: s.email, password: s.password, error: s.error, info: s.info, busy: s.busy,
-      demoMode: !this.auth.enabled, toTradeNote: this.next === 'trade',
+      demoMode: !this.auth.enabled, toTradeNote: this.next === 'trade', notTrade: this.next !== 'trade',
       signInLabel: s.busy ? 'Signing in…' : 'Sign in',
       checkEmailSuffix: this.next === 'trade' ? ', then you will go straight to Vision Trade' : '',
       setName: (e) => this.setState({ name: e.target.value }),
