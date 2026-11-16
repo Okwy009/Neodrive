@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Financing and fleet plans — NeoDrive</title>
+<title>Financing and fleet plans — Vision Enterprise</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NeoDrive: new and pre-owned electric cars with clear delivered prices and transparent financing.">
+<meta name="description" content="Vision Enterprise: new and pre-owned electric cars with clear delivered prices and transparent financing.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <style>x-dc{display:none}</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/config.js"></script>
+<script src="assets/auth.js"></script>
 <script src="assets/dc-lite.js" defer></script>
 </head>
 <body>
@@ -17,6 +20,16 @@
 <style>
 body{margin:0;background:#0B0C0E}
 a{color:#F2F1EC}a:hover{color:#E2C48A}
+@media (max-width: 760px){
+nav[aria-label="Main"]{gap:0 18px !important;font-size:14px !important}
+[style*="padding: 72px 24px 40px"]{padding:36px 16px 28px !important;gap:20px !important}
+[style*="padding: 0 24px 56px"]{padding:0 16px 40px !important}
+[style*="padding: 72px 24px"]{padding-top:48px !important;padding-bottom:48px !important;padding-left:16px !important;padding-right:16px !important}
+[style*="padding: 80px 24px"]{padding:56px 16px !important}
+[style*="padding: 28px; display: flex; flex-wrap: wrap"]{padding:20px !important}
+[role="tablist"]{align-self:stretch !important}
+[role="tablist"] button{flex:1}
+}
 </style>
 </helmet>
 <div style="font-family: 'Instrument Sans', system-ui, sans-serif; color: #F2F1EC; background: #0B0C0E; min-height: 100vh">
@@ -27,12 +40,13 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 <div style="max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none">
 <svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect x="0.75" y="0.75" width="28.5" height="28.5" rx="8" fill="none" stroke="#D6B370" stroke-width="1.5"></rect><path d="M16.5 6 9 17h5.5l-1.5 7L21 13h-5.5z" fill="#D6B370"></path></svg>
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">NeoDrive</span>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">Vision Enterprise</span>
 </a>
 <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 4px 28px; font-size: 15px; font-weight: 500">
 <a href="index.html" style="text-decoration: none; padding: 12px 0">Cars</a>
 <a href="#top" style="text-decoration: none; padding: 12px 0; color: #D6B370">Financing &amp; plans</a>
 <a href="#regulation" style="text-decoration: none; padding: 12px 0">Regulation</a>
+<a href="account.html?next=trade" data-trade-link style="text-decoration: none; padding: 12px 0">Trade</a>
 </nav>
 </div>
 </header>
@@ -217,8 +231,8 @@ a{color:#F2F1EC}a:hover{color:#E2C48A}
 
 <footer style="border-top: 1px solid #22252B">
 <div style="max-width: 1280px; margin: 0 auto; padding: 40px 24px; display: flex; flex-direction: column; gap: 16px; font-size: 14px; color: #8D9199">
-<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">NeoDrive</span>
-<p style="margin: 0; line-height: 1.6; max-width: 900px">NeoDrive is a trading name of [REGISTERED COMPANY NAME], registered in [COUNTRY] under no. [NUMBER]. Credit is provided by [LENDER NAME]. Fleet plans are offered only in countries where we hold authorisation, listed above. Capital at risk.</p>
+<span style="font-family: Archivo, sans-serif; font-stretch: 125%; font-weight: 800; font-size: 16px; letter-spacing: 0.04em; color: #F2F1EC; text-transform: uppercase">Vision Enterprise</span>
+<p style="margin: 0; line-height: 1.6; max-width: 900px">Vision Enterprise is a trading name of [REGISTERED COMPANY NAME], registered in [COUNTRY] under no. [NUMBER]. Credit is provided by [LENDER NAME]. Fleet plans are offered only in countries where we hold authorisation, listed above. Capital at risk.</p>
 </div>
 </footer>
 
@@ -272,7 +286,7 @@ class Component extends DCLogic {
     const planFacts = planList[s.plan].facts.map(([k, v]) => ({ k, v }));
     const waterfall = [
       ['Insurance and road tax', '[X]%'], ['Servicing, tyres and repairs', '[X]%'], ['Default and damage reserve', '[X]%'],
-      ['NeoDrive management fee', '[X]%'], ['Paid to plan holders', 'Remainder']
+      ['Vision Enterprise management fee', '[X]%'], ['Paid to plan holders', 'Remainder']
     ].map(([label, share], i) => ({ n: String(i + 1).padStart(2, '0'), label, share }));
     const planFees = [
       ['Management fee', 'Yearly, taken from lease income', '[X]% a year'],
@@ -286,7 +300,7 @@ class Component extends DCLogic {
     const planRisks = [
       { level: 'High', badge: high, t: 'Drivers stop paying', d: 'If drivers default, income falls until the car is recovered and re-leased, which can take months.' },
       { level: 'High', badge: high, t: 'Cars lose value', d: 'EV resale prices can fall sharply. The sale at term end may return much less than you put in.' },
-      { level: 'High', badge: high, t: 'NeoDrive fails', d: 'If the company goes under, recovering your share of the vehicles may be slow, costly or partial.' },
+      { level: 'High', badge: high, t: 'Vision Enterprise fails', d: 'If the company goes under, recovering your share of the vehicles may be slow, costly or partial.' },
       { level: 'Medium', badge: med, t: 'Accidents and theft', d: 'Insurance covers most losses, but excesses and time off the road reduce payouts.' },
       { level: 'Medium', badge: med, t: 'Your money is locked in', d: 'Plans are long-term. Leaving early may not be possible, or may cost an exit fee.' },
       { level: 'Medium', badge: med, t: 'Rules can change', d: 'Changes to ride-hail licensing or EV incentives in a city can cut lease demand.' }
@@ -296,8 +310,8 @@ class Component extends DCLogic {
       { k: 'Legal entity', v: '[REGISTERED COMPANY NAME]', d: 'Company no. [NUMBER], [COMPANIES REGISTRY]' },
       { k: 'Credit licence', v: '[LENDER NAME] · [REGULATOR]', d: 'Licence ref. [NUMBER]. Search it on [REGULATOR]’s public register.' },
       { k: 'Fleet plan authorisation', v: 'Pending · [REGULATOR]', d: 'Application ref. [NUMBER]. Plans stay closed until this shows as approved.' },
-      { k: 'Client money', v: 'Held at [BANK NAME]', d: 'In a segregated client account, separate from NeoDrive’s own money.' },
-      { k: 'Compensation scheme', v: '[SCHEME NAME] or "Not covered"', d: 'State plainly whether plan holders are protected if NeoDrive fails.' },
+      { k: 'Client money', v: 'Held at [BANK NAME]', d: 'In a segregated client account, separate from Vision Enterprise’s own money.' },
+      { k: 'Compensation scheme', v: '[SCHEME NAME] or "Not covered"', d: 'State plainly whether plan holders are protected if Vision Enterprise fails.' },
       { k: 'Complaints', v: '[COMPLAINTS EMAIL]', d: 'Reply within [X] days. If unresolved, contact [OMBUDSMAN / DISPUTE BODY].' }
     ];
 
